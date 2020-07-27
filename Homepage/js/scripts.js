@@ -45,7 +45,7 @@
   $(window).scroll(navbarCollapse);
 
   // Magnific popup calls
-  $('#portfolio').magnificPopup({
+  $('#facilities').magnificPopup({
     delegate: 'a',
     type: 'image',
     tLoading: 'Loading image #%curr%...',
