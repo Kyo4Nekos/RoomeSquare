@@ -1,5 +1,5 @@
 <?php
-//<==================addNewAccount function==================>
+//<==================Add New Customer Account==================>
 $con = mysqli_connect("localhost","hotel","hotel","hoteldb");
 if(!$con)
 	{
@@ -32,5 +32,6 @@ else
 	echo 'Inserted';
 }
  
+ header("refresh:2; url=account_verify.html");
 
 ?>
