@@ -18,18 +18,30 @@ if(!mysqli_select_db($con,'hoteldb'))
  $custusername = $_POST['username'];
  $custemail = $_POST['email'];
  $custpass = $_POST['pass'];
- 
+ $userType = 'CUSTOMER';
   
-  $sql="INSERT INTO customer(custname, custusername,custemail,custpass)
-	VALUES ('$custname','$custusername','$custemail','$custpass')";
+  $sql1="INSERT INTO customer(custname, custusername,custemail,custpass,userType)
+	VALUES ('$custname','$custusername','$custemail','$custpass','$userType')"; 
+  
+  $sql2="INSERT INTO users(username,password,userType) 
+  VALUES ('$custusername','$custpass','$userType')";
 	
-if(!mysqli_query($con,$sql))
+if(!mysqli_query($con,$sql1))
 {
-	echo 'Not Inserted';
+	echo 'Not Inserted.';
 }
 else
 {
-	echo 'Inserted';
+	echo 'Inserted.';
+}
+
+if(!mysqli_query($con,$sql2))
+{
+	echo ' Your username or Password was not inserted into the server.';
+}
+else
+{
+	echo 'Your username or Password has been inserted.';
 }
  
  header("refresh:2; url=account_verify.html");
