@@ -1,3 +1,9 @@
+<?php	
+	session_start(); 
+	if (!(isset($_SESSION['username']) && $_SESSION['pass']{
+	header ("Location: ../");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -238,81 +244,6 @@
                           </button>
                         </td>
                       </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-12">
-            <div class="card ">
-              <div class="card-header">
-                <h4 class="card-title"> Staff Attendance Table</h4>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table tablesorter " id="">
-                    <thead class=" text-primary">
-                      <tr>
-                        <th>
-                          Id
-                        </th>
-                        <th>
-                          Name
-                        </th>
-                        <th>
-                          Phone No.
-                        </th>
-                        <th class="text-center">
-                          Salary
-                        </th>
-						<th>Arrival Time</th>  
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                         KBH001
-                        </td>
-                        <td>
-                          Niger
-                        </td>
-                        <td>
-                          018-9032921
-                        </td>
-                        <td class="text-center">
-                          $1,738
-                        </td>
-						<td class= "text-right">8.15 am</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          KBH002
-                        </td>
-                        <td>
-                          Curaçao
-                        </td>
-                        <td>
-                          017-4569837
-                        </td>
-                        <td class="text-center">
-                          $790
-                        </td>
-						<td class= "text-right">Not Arrived</td>
-                      </tr>
-                      <tr>
-					<td>KBH003</td>
-                        <td>
-                          Sage Rodriguez
-						  </td>
-                        <td>
-                          012-345678
-                        </td>
-                        <td class="text-center">
-                          $560
-                        </td>
-						<td class= "text-right">8.15 am</td>
-                      </tr>                      
                     </tbody>
                   </table>
                 </div>
