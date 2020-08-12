@@ -9,34 +9,19 @@
   <title>
     K Boutique Hotel Administration
   </title>
-  <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-  <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-  <!-- CSS Files -->
   <link href="../assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
-
-<?php
-session_start();
-$custusername=$_SESSION['username'];
-$sql = 'SELECT * FROM `customers` WHERE username = "' . $_SESSION['username'] . '"';
-$result = mysqli_query($con, $sql) or trigger_error("Query Failed! SQL: $sql - Error: " . mysqli_error($con), E_USER_ERROR);
-$row=mysqli_fetch_array($result);
-?>
 
 <body class="">
   <div class="wrapper">
     <div class="sidebar">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
-    -->
       <div class="sidebar-wrapper">
-        <div class="logo">
-          <a href="javascript:void(0)" class="simple-text logo-mini">
+        <div class="logo">      
+		  <a href="javascript:void(0)" class="simple-text logo-mini">
             KBH
           </a>
           <a href="javascript:void(0)" class="simple-text logo-normal">
@@ -51,15 +36,15 @@ $row=mysqli_fetch_array($result);
             </a>
           </li>
           <li>
-            <a href="./icons.html">
+            <a href="./rooms.html">
               <i class="tim-icons icon-notes"></i>
               <p>Room</p>
             </a>
-          </li> 
+          </li>
           <li>
-            <a href="./tables.html">
+            <a href="./stafflist.html">
               <i class="tim-icons icon-badge"></i>
-              <p>Staff</p>
+              <p>Staff List</p>
             </a>
           </li>
         </ul>
@@ -77,7 +62,7 @@ $row=mysqli_fetch_array($result);
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:void(0)">Admin Profile</a>
+            <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -102,7 +87,7 @@ $row=mysqli_fetch_array($result);
                   </p>
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
-                  <li class="nav-link"><a href="user.html" class="nav-item dropdown-item">Profile</a></li>
+                  <li class="nav-link"><a href="user.php" class="nav-item dropdown-item">Profile</a></li>
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a></li>
                   <li class="dropdown-divider"></li>
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a></li>
@@ -128,93 +113,208 @@ $row=mysqli_fetch_array($result);
       <!-- End Navbar -->
       <div class="content">
         <div class="row">
-          <div class="col-md-8">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="title">Edit Profile</h5>
+          <div class="col-lg-6 col-md-12">
+            <div class="card card-tasks">
+              <div class="card-header ">
+                <h6 class="title d-inline">Tasks(5)</h6>
+                <p class="card-category d-inline">today</p>
+                <div class="dropdown">
+                  <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
+                    <i class="tim-icons icon-settings-gear-63"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#pablo">Action</a>
+                    <a class="dropdown-item" href="#pablo">Another action</a>
+                    <a class="dropdown-item" href="#pablo">Something else</a>
+                  </div>
+                </div>
               </div>
-              <div class="card-body">
-                <form action= "update.php" method= "POST">
-                  <div class="row">
-                    <div class="col-md-5 pr-md-1">
-                      <div class="form-group">
-                        <label>Company (disabled)</label>
-                        <input type="text" class="form-control" disabled="" placeholder="Company" value="K Boutique Hotel">
-                      </div>
-                    </div>
-                    <div class="col-md-3 px-md-1">
-                      <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" class="form-control" placeholder="Username" name="username">
-                      </div>
-                    </div>
-               
-                  </div>
-				  <div class="row">
-                    <div class="col-md-6 pr-md-1">
-                      <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" class="form-control" placeholder="Email" name="email">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 pr-md-1">
-                      <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" class="form-control" placeholder="Name" name="fullname">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 pr-md-1">
-                      <div class="form-group">
-                        <label>Phone</label>
-                        <input type="text" class="form-control" placeholder="Phone Number" name="phone">
-                      </div>
-                    </div>
-                  </div>
-                  
-                </form>
-              </div>
-              <div class="card-footer">
-                <button type="submit" name="updateButton" class="btn btn-primary profile-button">Save</button>
+              <div class="card-body ">
+                <div class="table-full-width table-presponsive">
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="checkbox" value="">
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="title">Update the Documentation</p>
+                          <p class="text-muted">Dwuamish Head, Seattle, WA 8:47 AM</p>
+                        </td>
+                        <td class="td-actions text-right">
+                          <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
+                            <i class="tim-icons icon-pencil"></i>
+                          </button>
+                        </td>
+						</tr>
+                      <tr>
+                        <td>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="checkbox" value="">
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="title">Solve the issues</p>
+                          <p class="text-muted">Fifty percent of all respondents said they would be more likely to shop at a company </p>
+                        </td>
+                        <td class="td-actions text-right">
+                          <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
+                            <i class="tim-icons icon-pencil"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="checkbox" value="">
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="title">Release v2.0.0</p>
+                          <p class="text-muted">Ra Ave SW, Seattle, WA 98116, SUA 11:19 AM</p>
+                        </td>
+                        <td class="td-actions text-right">
+                          <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
+                            <i class="tim-icons icon-pencil"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="checkbox" value="">
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="title">Export the processed files</p>
+                          <p class="text-muted">The report also shows that consumers will not easily forgive a company once a breach exposing their personal data occurs. </p>
+                        </td>
+                        <td class="td-actions text-right">
+                          <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
+                            <i class="tim-icons icon-pencil"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="checkbox" value="">
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="title">Arival at export process</p>
+                          <p class="text-muted">Capitol Hill, Seattle, WA 12:34 AM</p>
+                        </td>
+                        <td class="td-actions text-right">
+                          <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
+                            <i class="tim-icons icon-pencil"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card card-user">
-              <div class="card-body">
-                <p class="card-text">
-                  <div class="author">
-                    <div class="block block-one"></div>
-                    <div class="block block-two"></div>
-                    <div class="block block-three"></div>
-                    <div class="block block-four"></div>
-                    <a href="javascript:void(0)">
-                      <img class="avatar" src="../assets/img/emilyz.jpg" alt="...">
-                      <h5 class="title">Delila Ahmad</h5>
-                    </a>
-                    <p class="description">
-                      Ceo/Co-Founder
-                    </p>
-                  </div>
-                </p>
-                <div class="card-description">
-                  Do not be scared of the truth!
-                </div>
+          <div class="col-lg-6 col-md-12">
+            <div class="card ">
+              <div class="card-header">
+                <h4 class="card-title"> Staff Attendance Table</h4>
               </div>
-              <div class="card-footer">
-                <div class="button-container">
-                  <button href="javascript:void(0)" class="btn btn-icon btn-round btn-facebook">
-                    <i class="fab fa-facebook"></i>
-                  </button>
-                  <button href="javascript:void(0)" class="btn btn-icon btn-round btn-twitter">
-                    <i class="fab fa-twitter"></i>
-                  </button>
-                  <button href="javascript:void(0)" class="btn btn-icon btn-round btn-google">
-                    <i class="fab fa-google-plus"></i>
-                  </button>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table tablesorter " id="">
+                    <thead class=" text-primary">
+                      <tr>
+                        <th>
+                          Id
+                        </th>
+                        <th>
+                          Name
+                        </th>
+                        <th>
+                          Phone No.
+                        </th>
+                        <th class="text-center">
+                          Salary
+                        </th>
+						<th>Arrival Time</th>  
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                         KBH001
+                        </td>
+                        <td>
+                          Niger
+                        </td>
+                        <td>
+                          018-9032921
+                        </td>
+                        <td class="text-center">
+                          $1,738
+                        </td>
+						<td class= "text-right">8.15 am</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          KBH002
+                        </td>
+                        <td>
+                          Curaçao
+                        </td>
+                        <td>
+                          017-4569837
+                        </td>
+                        <td class="text-center">
+                          $790
+                        </td>
+						<td class= "text-right">Not Arrived</td>
+                      </tr>
+                      <tr>
+					<td>KBH003</td>
+                        <td>
+                          Sage Rodriguez
+						  </td>
+                        <td>
+                          012-345678
+                        </td>
+                        <td class="text-center">
+                          $560
+                        </td>
+						<td class= "text-right">8.15 am</td>
+                      </tr>                      
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
@@ -256,7 +356,7 @@ $row=mysqli_fetch_array($result);
           <span class="badge light-badge mr-2"></span>
           <span class="badge dark-badge ml-2"></span>
           <span class="color-label">DARK MODE</span>
-		  </li>
+        </li>
       </ul>
     </div>
   </div>
@@ -384,6 +484,13 @@ $row=mysqli_fetch_array($result);
           $('body').removeClass('white-content');
         });
       });
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      demo.initDashboardPageCharts();
+
     });
   </script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
