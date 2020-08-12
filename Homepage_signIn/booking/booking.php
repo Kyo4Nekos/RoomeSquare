@@ -1,9 +1,14 @@
 <?php	
 	session_start(); 
-	if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
+	if (!(isset($_SESSION['username']) && $_SESSION['pass']))
 		{
-		session_destroy()
-		header('location: ../customerlogin/index.html');
+		<script> alert("Please Login again.") </script>;
+		header('location = ../../customerlogin/index.html');
+		}
+		
+		else
+		{
+		<script> alert("Welcome") </script>;
 		}
 ?>
 

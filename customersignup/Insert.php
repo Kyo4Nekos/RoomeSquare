@@ -18,10 +18,11 @@ if(!mysqli_select_db($con,'hoteldb'))
  $custusername = $_POST['username'];
  $custemail = $_POST['email'];
  $custpass = $_POST['pass'];
+ $custphoneno=$_POST['phone'];
  $userType = 'CUSTOMER';
   
-  $sql1="INSERT INTO customer(custname, custusername,custemail,custpass,userType)
-	VALUES ('$custname','$custusername','$custemail','$custpass','$userType')"; 
+  $sql1="INSERT INTO customer(custname, custusername,custemail,custpass,custphoneno,userType)
+	VALUES ('$custname','$custusername','$custemail','$custpass','$custphoneno','$userType')"; 
   
   $sql2="INSERT INTO users(username,password,userType) 
   VALUES ('$custusername','$custpass','$userType')";

@@ -76,7 +76,7 @@ $row=mysqli_fetch_array($result);
                     <div class="col-md-6"><input type="text" class="form-control" name="email" placeholder="Email"></div>
                     <div class="col-md-6"><input type="text" class="form-control" name="phone" placeholder="Phone Number"></div>
                 </div>
-                <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="submit" name="updateButton">Save Profile</button></div>
+                <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
 				</form>
             </div>
         </div>

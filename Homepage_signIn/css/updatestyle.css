@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+    background: #ffa64d
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #ffa64d
+}
+
+.profile-button {
+    background: #ffa64d;
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #ffa64d
+}
+
+.profile-button:focus {
+    background: #ffa64d;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #ffa64d;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #ffa64d;
+    cursor: pointer
+}

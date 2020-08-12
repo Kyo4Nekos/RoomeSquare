@@ -4,8 +4,6 @@ session_start();
 include "user.php";
 $_SESSION['username']=$_POST['username'];  
 $_SESSION['pass']=$_POST['pass'];  
-$_SESSION['curTime']=time('G:i:sa');//get the login time
-
 
 // username and password sent from form 
 $username=$_POST['username']; 
