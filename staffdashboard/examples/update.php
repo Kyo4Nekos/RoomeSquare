@@ -29,7 +29,8 @@
 		$_SESSION['username'] = $_POST['username'];
 
       
-		print_r($_SESSION);
+        print_r($_SESSION);
+        header("Refresh:2; url=user.php");
 
     }
 ?>

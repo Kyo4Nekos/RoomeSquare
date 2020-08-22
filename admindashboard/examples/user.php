@@ -1,9 +1,3 @@
-<?php	
-	session_start(); 
-	if (!(isset($_SESSION['username']) && $_SESSION['pass']{
-	header ("Location: ../");
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,21 +7,45 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    K Boutique Hotel Staff
+    K Boutique Hotel Administration
   </title>
+  <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+  <!-- CSS Files -->
   <link href="../assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
+
+<?php
+//create connection								
+$con=mysqli_connect("localhost","hotel","hotel","hoteldb");
+if (!$con) {
+	echo  mysqli_connect_error();
+	exit;
+}
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+session_start();
+$custusername=$_SESSION['username'];
+
+?>
 
 <body class="">
   <div class="wrapper">
     <div class="sidebar">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
+    -->
       <div class="sidebar-wrapper">
-        <div class="logo">      
-		  <a href="javascript:void(0)" class="simple-text logo-mini">
+        <div class="logo">
+          <a href="javascript:void(0)" class="simple-text logo-mini">
             KBH
           </a>
           <a href="javascript:void(0)" class="simple-text logo-normal">
@@ -42,15 +60,15 @@
             </a>
           </li>
           <li>
-            <a href="./rooms.html">
+            <a href="./icons.html">
               <i class="tim-icons icon-notes"></i>
               <p>Room</p>
             </a>
-          </li>
+          </li> 
           <li>
-            <a href="./custbooking.html">
-              <i class="tim-icons icon-bullet-list-67"></i>
-              <p>Customer Booking Details</p>
+            <a href="./tables.html">
+              <i class="tim-icons icon-badge"></i>
+              <p>Staff</p>
             </a>
           </li>
         </ul>
@@ -68,7 +86,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
+            <a class="navbar-brand" href="javascript:void(0)">Admin Profile</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -93,7 +111,7 @@
                   </p>
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
-                  <li class="nav-link"><a href="user.php" class="nav-item dropdown-item">Profile</a></li>
+                  <li class="nav-link"><a href="user.html" class="nav-item dropdown-item">Profile</a></li>
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a></li>
                   <li class="dropdown-divider"></li>
                   <li class="nav-link"><a href="logout.php" class="nav-item dropdown-item">Log out</a></li>
@@ -119,133 +137,108 @@
       <!-- End Navbar -->
       <div class="content">
         <div class="row">
-          <div class="col-lg-6 col-md-12">
-            <div class="card card-tasks">
-              <div class="card-header ">
-                <h6 class="title d-inline">Tasks(5)</h6>
-                <p class="card-category d-inline">today</p>
-                <div class="dropdown">
-                  <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
-                    <i class="tim-icons icon-settings-gear-63"></i>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#pablo">Action</a>
-                    <a class="dropdown-item" href="#pablo">Another action</a>
-                    <a class="dropdown-item" href="#pablo">Something else</a>
-                  </div>
-                </div>
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="title">Edit Profile</h5>
               </div>
-              <div class="card-body ">
-                <div class="table-full-width table-presponsive">
-                  <table class="table">
-                    <tbody>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Update the Documentation</p>
-                          <p class="text-muted">Dwuamish Head, Seattle, WA 8:47 AM</p>
-                        </td>
-                        <td class="td-actions text-right">
-                          <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
-                            <i class="tim-icons icon-pencil"></i>
-                          </button>
-                        </td>
-						</tr>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Solve the issues</p>
-                          <p class="text-muted">Fifty percent of all respondents said they would be more likely to shop at a company </p>
-                        </td>
-                        <td class="td-actions text-right">
-                          <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
-                            <i class="tim-icons icon-pencil"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Release v2.0.0</p>
-                          <p class="text-muted">Ra Ave SW, Seattle, WA 98116, SUA 11:19 AM</p>
-                        </td>
-                        <td class="td-actions text-right">
-                          <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
-                            <i class="tim-icons icon-pencil"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Export the processed files</p>
-                          <p class="text-muted">The report also shows that consumers will not easily forgive a company once a breach exposing their personal data occurs. </p>
-                        </td>
-                        <td class="td-actions text-right">
-                          <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
-                            <i class="tim-icons icon-pencil"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Arival at export process</p>
-                          <p class="text-muted">Capitol Hill, Seattle, WA 12:34 AM</p>
-                        </td>
-                        <td class="td-actions text-right">
-                          <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
-                            <i class="tim-icons icon-pencil"></i>
-                          </button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+              <div class="card-body">
+
+
+              <?php
+					$sql = 'SELECT * FROM `customer` WHERE custusername = "' . $_SESSION['username'] . '"';
+					$result = mysqli_query($con, $sql) or trigger_error("Query Failed! SQL: $sql - Error: " . mysqli_error($con), E_USER_ERROR);
+					while ($row = mysqli_fetch_assoc($result)) {
+
+				/*	echo '<form action= "update.php" method= "POST">';
+					echo '<div class="row">';
+						echo        '<div class="column">';
+						
+					//echo '<div class="row mt-3">';
+					echo '<div class="col-md-6"><input type="text" size="50" class="form-control" name="username" value="'.$row['custusername'].'" placeholder="Username"></div>';
+					echo '<div class="col-md-6"><input type="text" size="50" class="form-control" name="fullname" value="'.$row['custname'].'" placeholder="Full Name"></div>';
+					//echo '</div>';
+					//echo '<div class="row mt-3">';
+					echo '<div class="col-md-6"><input type="text" size="50" class="form-control" name="email" value="'.$row['custemail'].'" placeholder="Email"></div>';
+					echo '<div class="col-md-6"><input type="text" size="50" class="form-control" name="phone" value="'.$row['custphoneno'].'" placeholder="Phone Number"></div>';
+					echo '</div>';
+          echo '</form>';*/
+          
+          echo '<form action= "update.php" method= "POST">';
+          echo   '<div class="row">';
+          echo    '<div class="col-md-5 pr-md-1">';
+          echo       '<div class="form-group">';
+          echo          '<label>Company (disabled)</label>';
+          echo          '<input type="text" class="form-control" disabled="" placeholder="Company" value="K Boutique Hotel">';
+          echo        '</div>';
+          echo      '</div>';
+          echo     '<div class="col-md-3 px-md-1">';
+          echo        '<div class="form-group">';
+          echo          '<label>Username</label>';
+          echo          '<input type="text" class="form-control" value="'.$row['custusername'].'" placeholder="Username" name="username">';
+          echo        '</div>';
+          echo      '</div>';
+          
+          echo    '</div>';
+				  echo '<div class="row">';
+          echo      '<div class="col-md-6 pr-md-1">';
+          echo        '<div class="form-group">';
+          echo          '<label>Email Address</label>';
+          echo         '<input type="email" class="form-control" value="'.$row['custemail'].'" placeholder="Email" name="email">';
+          echo        '</div>';
+          echo      '</div>';
+          echo    '</div>';
+          echo    '<div class="row">';
+          echo      '<div class="col-md-6 pr-md-1">';
+          echo        '<div class="form-group">';
+          echo          '<label>Full Name</label>';
+          echo          '<input type="text" class="form-control" value="'.$row['custname'].'" placeholder="Name" name="fullname">';
+          echo        '</div>';
+          echo      '</div>';
+          echo    '</div>';
+          echo    '<div class="row">';
+          echo      '<div class="col-md-6 pr-md-1">';
+          echo       '<div class="form-group">';
+          echo          '<label>Phone</label>';
+          echo          '<input type="text" class="form-control" value="'.$row['custphoneno'].'" placeholder="Phone Number" name="phone">';
+          echo        '</div>';
+          echo      '</div>';
+          echo    '</div>';
+          echo    '<div class="card-footer">';
+          echo  '<button type="submit" name="updateButton" class="btn btn-primary profile-button">Save</button>';
+          echo '</div>';
+          echo  '</form>';
+            }
+            
+				?>
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card card-user">
+              <div class="card-body">
+                <p class="card-text">
+                  <div class="author">
+                    <div class="block block-one"></div>
+                    <div class="block block-two"></div>
+                    <div class="block block-three"></div>
+                    <div class="block block-four"></div>
+                    <a href="javascript:void(0)">
+                      <img class="avatar" src="../assets/img/emilyz.jpg" alt="...">
+                      <h5 class="title">Delila Ahmad</h5>
+                    </a>
+                    <p class="description">
+                      Ceo/Co-Founder
+                    </p>
+                  </div>
+                </p>
+                <div class="card-description">
+                  Do not be scared of the truth!
                 </div>
               </div>
             </div>
@@ -287,7 +280,7 @@
           <span class="badge light-badge mr-2"></span>
           <span class="badge dark-badge ml-2"></span>
           <span class="color-label">DARK MODE</span>
-        </li>
+		  </li>
       </ul>
     </div>
   </div>
@@ -415,13 +408,6 @@
           $('body').removeClass('white-content');
         });
       });
-    });
-  </script>
-  <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      demo.initDashboardPageCharts();
-
     });
   </script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
