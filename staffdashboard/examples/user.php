@@ -94,7 +94,7 @@ $custusername=$_SESSION['username'];
               <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
-                    <img src="../assets/img/anime3.png" alt="Profile Photo">
+                    <?php echo '<img src="imageView.php?custusername=' . $_SESSION['username'] . '" class="avatar img-circle img-thumbnail">'; ?>
                   </div>
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
@@ -204,24 +204,65 @@ $custusername=$_SESSION['username'];
           <div class="col-md-4">
             <div class="card card-user">
               <div class="card-body">
+			  <?php
+					if (isset($_POST['upload'])) {
+
+					$conn = mysqli_connect("localhost","hotel","hotel","hoteldb");
+
+					if (count($_FILES) > 0) {
+						if (is_uploaded_file($_FILES['image']['tmp_name'])) {
+							//require_once "db.php";
+							$imgData = addslashes(file_get_contents($_FILES['image']['tmp_name']));
+							$imageProperties = getimagesize($_FILES['image']['tmp_name']);
+
+							$sql = "UPDATE `customer` SET `imageData` = '{$imgData}', imageType = '{$imageProperties['mime']}' WHERE `customer`.`custusername` = '" . $_SESSION['username'] . "'";
+							//$sql = "INSERT INTO admin(imageType ,imageData) VALUES('{$imageProperties['mime']}', '{$imgData}')";
+							$current_id = mysqli_query($con, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($con));
+							if (isset($current_id)) {
+
+								//mysqli_close($con);     
+							}
+								//mysqli_close($con); 
+							}
+						}
+					}
+			?>
                 <p class="card-text">
                   <div class="author">
                     <div class="block block-one"></div>
                     <div class="block block-two"></div>
                     <div class="block block-three"></div>
                     <div class="block block-four"></div>
+					<form method="POST" action="" enctype="multipart/form-data">
+						<div class="text-center">
+							<?php echo '<img src="imageView.php?custusername=' . $_SESSION['username'] . '" class="avatar img-circle img-thumbnail">'; ?>
+							<br><br>
+
+							<input type="file" name="image" class="text-center center-block file-upload"> <br><br>
+							<div class="form-group">
+
+							<input type='submit' name='upload' class='btn btn-primary  vertical-center' style="background-color: #c9c9a3; border-color: #bfbf9d">
+
+							</div>
+						</div><br>
+					</form>
+					<!-- <input type="file" name="image" class="text-center center-block file-upload"> <br><br>
+					<div class="form-group">
+
+					<input type='submit' name='upload' class='btn btn-primary  vertical-center' style="background-color: #c9c9a3; border-color: #bfbf9d">
+
+					</div>
                     <a href="javascript:void(0)">
+					  
+						<br><br>
                       <img class="avatar" src="../assets/img/emilyz.jpg" alt="...">
                       <h5 class="title">Delila Ahmad</h5>
-                    </a>
+                    </a> 
                     <p class="description">
-                      Ceo/Co-Founder
-                    </p>
+                      Staff 
+                    </p>-->
                   </div>
                 </p>
-                <div class="card-description">
-                  Do not be scared of the truth!
-                </div>
               </div>
             </div>
           </div>

@@ -43,8 +43,8 @@ $custusername=$_SESSION['username'];
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="booking/contact.html">Contact Us</a></li>
 						<li class="dropdown nav-item">
                 		<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  		<div>
-						My Info
+                  		<div class = "photo">
+						<?php echo '<img src="imageView(2).php?custusername='. $_SESSION['username'].'" class="avatar img-circle img-thumbnail" >'; ?>
                   		</div>
                   		
                 		</a>
@@ -73,9 +73,55 @@ $custusername=$_SESSION['username'];
 	<br>
     <div class="container rounded bg-white mt-5">
     <div class="row">
-        <div class="col-md-4 border-right">
+	<div class="col-md-4">
+        <div class="card card-user">
+            <div class="card-body">
+			<?php
+				if (isset($_POST['upload'])) {
+
+				$conn = mysqli_connect("localhost","hotel","hotel","hoteldb");
+
+				if (count($_FILES) > 0) {
+					if (is_uploaded_file($_FILES['image']['tmp_name'])) {
+						//require_once "db.php";
+						$imgData = addslashes(file_get_contents($_FILES['image']['tmp_name']));
+						$imageProperties = getimagesize($_FILES['image']['tmp_name']);
+
+						$sql = "UPDATE `customer` SET `imageData` = '{$imgData}', imageType = '{$imageProperties['mime']}' WHERE `customer`.`custusername` = '" . $_SESSION['username'] . "'";
+
+						$current_id = mysqli_query($con, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($con));
+						if (isset($current_id)) {
+
+							//mysqli_close($con);     
+						}
+							//mysqli_close($con); 
+						}
+					}
+				}
+			?>
+            <p class="card-text">
+                <div class="author">
+				<form method="POST" action="" enctype="multipart/form-data">
+					<div class="text-center">
+						<?php echo '<img src="imageView(2).php?custusername=' . $_SESSION['username'] . '" class="avatar img-circle img-thumbnail">'; ?>
+						<br><br>
+
+						<input type="file" name="image" class="text-center center-block file-upload"> <br><br>
+						<div class="form-group">
+
+						<input type='submit' name='upload' class='btn btn-primary  vertical-center' style="background-color: #c9c9a3; border-color: #bfbf9d">
+
+						</div>
+					</div><br>
+				</form>
+                </div>
+            </p>
+            </div>
+    </div>
+    </div>
+        <!--<div class="col-md-4 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="https://i.imgur.com/0eg0aG0.jpg" width="90"><span class="font-weight-bold">John Doe</span><span class="text-black-50">john_doe12@bbb.com</span><span>United States</span></div>
-        </div>
+        </div>-->
         <div class="col-md-8">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
