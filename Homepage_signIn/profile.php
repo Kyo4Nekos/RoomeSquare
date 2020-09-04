@@ -44,7 +44,7 @@ $custusername=$_SESSION['username'];
 						<li class="dropdown nav-item">
                 		<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   		<div class = "photo">
-						<?php echo '<img src="imageView(2).php?custusername='. $_SESSION['username'].'" class="avatar img-circle img-thumbnail" >'; ?>
+						<?php echo '<img src="imageView(2).php?custusername='. $_SESSION['username'].'" class="avatar1 img-circle img-thumbnail" >'; ?>
                   		</div>
                   		
                 		</a>
@@ -99,6 +99,23 @@ $custusername=$_SESSION['username'];
 					}
 				}
 			?>
+
+<style>
+.avatar {
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.avatar1 {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+</style>
+
             <p class="card-text">
                 <div class="author">
 				<form method="POST" action="" enctype="multipart/form-data">

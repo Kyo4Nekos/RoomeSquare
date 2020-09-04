@@ -116,59 +116,66 @@
           <div class="col-md-12">
             <div class="card ">
               <div class="card-header">
-                <h4 class="card-title"> Simple Table</h4>
+                <h4 class="card-title"> Staff Table</h4>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table tablesorter " id="">
+                 <form action="processStaff.php" method = "POST">
+                <table class="table tablesorter " id="">
                     <thead class=" text-primary">
-                      <tr>
-						<th>Id</th>  
-                        <th>
-                          Name
-                        </th>
-						<th>Phone no.</th>  
-                        <th class="text-center">
-                          Salary
-                        </th>
-						<th class= "text-center">Remove</th>  
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-						  <td>KBH001</td>
-                        <td>
-                          Dakota Rice
-                        </td>
-                        <td>
-                          017-3457890
-                        </td>
-                        <td class="text-center">
-                          $456
-                        </td>
-						<td class="td-actions text-center">
-                          <button type="button" id="delete" data-toggle="modal" data-target="#myDelete" rel="tooltip" title="" class="btn btn-link" data-original-title="Delete Task">
-                            <i class="tim-icons icon-trash-simple"></i>
-                          </button>
-                        </td>  
-                      </tr>
-                      <tr>
-                        <td>
-                          KBH002
-                        </td>
-                        <td>
-                          Sinaai-Waas
-                        </td>
-						<td>018-8754302</td>  
-                        <td class="text-center">
-                          $23,789
-                        </td>
-						<td class="td-actions text-center">
-                          <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
-                            <i class="tim-icons icon-trash-simple"></i>
-                          </button>
-                        </td>  
-                      </tr>
+            <tr>
+            <th>Index</th>            
+						<th>Staff ID</th>  
+            <th>Staff Name</th>            
+            <th>Staff Email</th>             
+            <th class="text-center">Phone Number</th>   
+            <th class= "text-center">Staff Address</th>           
+					  </tr>          
+                        
+    <?php  
+    include "staff.php";
+    $i=1;
+    while($row=mysqli_fetch_assoc($qry))//Display car information
+      {
+      echo '<tr>';
+      echo '<td>'.$i.'</td>';
+      echo '<td>'.$row['staffid'].'</td>';
+      echo '<td>'.$row['staffname'].'</td>';
+      echo '<td>'.$row['staffemail'].'</td>';
+      echo '<td>'.$row['staffnumber'].'</td>';
+      echo '<td>'.$row['staffaddress'].'</td>';
+      $staffid = $row['staffid'];
+
+       //delete menu
+      echo '<td>';
+      echo '<form action="processCar.php" method="post" >';
+      echo '<!-- Delete Modal -->
+      <div id="myDelete" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+      
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure you want to delete this Staff?</p>
+            </div>
+            <div class="modal-footer"></div>
+              <button type="button" class="btn btn-default" value='$staffid' name='staffIdToDelete'>";>Yes</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+            </div>
+          </div>
+      
+        </div>
+      </div>';
+      
+      <!-- End of Delete Modal -->
+      echo '</form>';
+      echo '</td>';
+    ?>
+	
 						<tr><td class="td-actions text-left">
                           <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Add Task">
                             <i class="tim-icons icon-simple-add"></i> Add New Staff
@@ -177,29 +184,7 @@
                     </tbody>
                   </table>
 
-<!-- Delete Modal -->
-<div id="myDelete" class="modal fade" role="dialog">
-  <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-        <p>Are you sure you want to delete this Staff?</p>
-      </div>
-      <div class="modal-footer"></div>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Yes</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- End of Delete Modal -->
 
                   
                 </div>
