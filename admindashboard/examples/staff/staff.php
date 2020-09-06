@@ -1,6 +1,6 @@
 <?php
-//addNewCar function==================
-function addNewCar()
+//addNewStaff function==================
+function addNewStaff()
 {
 $con = mysqli_connect("localhost","hotel","hotel","hoteldb");
 if(!$con)
@@ -13,10 +13,11 @@ if(!$con)
  $custusername = $_POST['custusername'];
  $custname = $_POST['custname'];
  $custemail = $_POST['custemail'];
+ $custpass = $_POST['custpass'];
  $custphoneno = $_POST['custphoneno'];
   
-  $sql="INSERT INTO customer(userType, custusername,custname,custemail,custphoneno)
-	VALUES ('$userType','$custusername','$custname','$custemail','$custphoneno')";
+  $sql="INSERT INTO customer(userType, custusername,custname,custemail,custpass,custphoneno)
+	VALUES ('$userType','$custusername','$custname','$custemail','$custpass','$custphoneno')";
  
 //echo $sql;
 	$qry = mysqli_query($con,$sql);
@@ -57,8 +58,8 @@ if(!$con)
 
 }
 
-//searchByRegNumber function ==================
-function findCarByRegNumber()
+//searchByName function ==================
+function findStaffByName()
 {
 //create connection
 $con=mysqli_connect("localhost","hotel","hotel","hoteldb");
@@ -67,13 +68,13 @@ if(!$con)
 	echo  mysqli_connect_error(); 
 	exit;
 	}
-$sql = 'SELECT * from customer where staffid ="'.$_POST['searchValue'].'"';
+	$sql = "SELECT * from customer where userType = 'STAFF' AND custname like '%".$_POST['searchValue']."%'";
 echo $sql;
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }
-//findCarByBrand function ==================
-function findCarByBrand()
+//findCarByUsername function ==================
+function findCarByUsername()
 {
 //create connection
 $con=mysqli_connect("localhost","hotel","hotel","hoteldb");
@@ -82,7 +83,7 @@ if(!$con)
 	echo  mysqli_connect_error(); 
 	exit;
 	}
-$sql = "SELECT * from staff where staffname like '%".$_POST['searchValue']."%'";
+$sql = "SELECT * from customer where custusername like '%".$_POST['searchValue']."%'";
 echo $sql;
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
@@ -117,7 +118,7 @@ $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }
 //================updateCarInformation
-function updateCarInformation()
+function updateStaffInformation()
 {
 //create connection
 $con=mysqli_connect("localhost","hotel","hotel","hoteldb");
@@ -127,15 +128,15 @@ if(!$con)
 	exit;
 	}
 //get the data to update
- $oldStaffId = $_POST['staffid'];
- $newStaffId = $_POST['newstaffId'];
- $staffname = $_POST['staffname'];
- $staffemail = $_POST['staffemail'];
- $staffnumber = $_POST['staffnumber'];
- $staffaddress = $_POST['staffaddress'];
+ $custname = $_POST['custname'];
+ $custusername = $_POST['custusername'];
+ $custemail = $_POST['custemail'];
+ $custpass = $_POST['custpass'];
+ $custphoneno = $_POST['custphoneno'];
  
-$sql = 'UPDATE staff SET newstaffId ="'.$newStaffId.'", staffname = "'.$staffname.'", model = "'.$staffemail.'", 
-staffnumber = "'.$staffnumber.'", staffaddress = "'.$staffaddress.'" WHERE staffid = "'.$oldStaffId.'"';
+ 
+$sql = 'UPDATE customer SET  custname = "'.$custname.'", custusername = "'.$custusername.'", 
+custemail = "'.$custemail.'", custpass = "'.$custpass.'", custphoneno = "'.$custphoneno.'" WHERE userType = "STAFF"';
 	echo $sql;
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query

@@ -13,34 +13,36 @@
 <?php
 //updateCarForm.php
 include "staff.php";
-$staffid=$_POST['staffIdToUpdate'];
-$qry = getCarInformation($staffid);//call function to get detail car data
+$userType=$_POST['staffIdToUpdate'];
+$qry = getCarInformation($userType);//call function to get detail car data
 $row = mysqli_fetch_assoc($qry);
 //assign data to variable
-$staffname = $row['staffname'];
-$staffemail =$row['staffemail'];
-$staffnumber =$row['stuffnumber'];
-$stufaddress = $row['stufaddress'];
+$custname = $row['custname'];
+$custusername = $row['custusername'];
+$custemail =$row['custemail'];
+$custpass = $row['custpass'];
+$custphoneno =$row['custphoneno'];
+
 
 echo '<div id ="set" style="line-height: 1.8;">';
 echo '<form action="processStaff.php" method="post">';
 echo '<fieldset><legend>Staff Information Update:</legend>';
 
-echo 'ID Number:';
-echo "<input type='text' name='newStaffId' value='$staffid' required>";
-echo "<input type='hidden' name='staffid' value='$staffid' >";
 
 echo '<br>Staff Name :';
-echo "<input type='text' name='model' value='$staffname'>";
+echo "<input type='text' name='custname' value='$custname'>";
+
+echo '<br>Staff Username :';
+echo "<input type='text' name='custusername' value='$custusername'>";
 
 echo '<br>Staff Email :';
-echo "<input type='date' name='regDate' value='$staffemail'>";
+echo "<input type='text' name='custemail' value='$custemail'>";
 
 echo '<br>Staff Contact Number :';
-echo "<input type='number' name='price' value='$staffnumber'>";
+echo "<input type='text' name='custphoneno' value='$custphoneno'>";
 
-echo '<br>Staff Address :';
-echo "<input type='number' name='price' value='$staffaddress'>";
+echo '<br>Staff Password :';
+echo "<input type='text' name='custpass' value='$custpass'>";
 
 echo '<br><br><input type="submit" name="updateStaffButton" value="Save">';
 echo '<input type ="reset" name="resetButton" value="reset">';

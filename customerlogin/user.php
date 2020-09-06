@@ -1,7 +1,7 @@
 <?php
 //user.php
 //=================== validatePassword
-function validatePassword($username,$password)
+function validatePassword($custusername,$custpass)
 {
 $con=mysqli_connect("localhost","hotel","hotel","hoteldb");
 if(!$con)
@@ -9,7 +9,7 @@ if(!$con)
 	echo  mysqli_connect_error(); 
 	exit;
 	}
-$sql= "SELECT * FROM users where username = '".$username ."' and password ='".$password."'";
+$sql= "SELECT * FROM customer where custusername = '".$custusername ."' and custpass ='".$custpass."'";
 $result=mysqli_query($con,$sql);
 $count=mysqli_num_rows($result); //check how many matching record - should be 1 if correct
 if($count == 1){
@@ -22,7 +22,7 @@ else
 	}
 
 //=================== getUserType
-function getUserType($username)
+function getUserType($custusername)
 {
 $con=mysqli_connect("localhost","hotel","hotel","hoteldb");
 if(!$con)
@@ -30,7 +30,7 @@ if(!$con)
 	echo  mysqli_connect_error(); 
 	exit;
 	}
-$sql= "SELECT * FROM users where username = '".$username ."'";
+$sql= "SELECT * FROM customer where custusername = '".$custusername ."'";
 $result=mysqli_query($con,$sql);
 $count=mysqli_num_rows($result); //check how many matching record - should be 1 if correct
 if($count == 1){

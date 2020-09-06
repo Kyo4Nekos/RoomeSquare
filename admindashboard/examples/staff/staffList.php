@@ -5,8 +5,8 @@ echo '<h1>K Boutique Staff List</h1>';
 
 //===================== search form=====
 displaySearchOption();
-if(isSet($_POST['searchByID']))
-	$qry = findStaffByID(); //call function in car.php
+if(isSet($_POST['searchByUsername']))
+	$qry = findStaffByUsername(); //call function in car.php
 else if(isSet($_POST['searchByName']))
 	$qry = findStaffByName(); //call function in car.php
 else
@@ -49,7 +49,7 @@ while($row=mysqli_fetch_assoc($qry))//Display car information
   echo '</td>';
   //update menu
   echo '<td>';
-			echo '<form action="updatStaffForm.php" method="post" >';
+			echo '<form action="updateStaffForm.php" method="post" >';
 			echo "<input type='hidden' value='$userType' name='staffIdToUpdate'>";
 			echo '<input type="submit" name="updateStaffButton" value="Update">';
 			echo '</form>';
@@ -72,7 +72,7 @@ function displaySearchOption()
 <table border=1>
 <tr><td> Search Bar : </td><td><input type=text name=searchValue><br></td></tr>
 <td></td><td>
-<input type=submit name = searchByID value="By ID">
+<input type=submit name = searchByUsername value="By Username">
 <input type=submit name = searchByName value="By Name">
 <input type=submit name = displayAll value="Display All"></td>
 </table>

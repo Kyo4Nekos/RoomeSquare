@@ -6,15 +6,15 @@ $_SESSION['username']=$_POST['username'];
 $_SESSION['pass']=$_POST['pass'];  
 
 // username and password sent from form 
-$username=$_POST['username']; 
-$password=$_POST['pass']; 
+$custusername=$_POST['username']; 
+$custpass=$_POST['pass']; 
 
 
-$isValidUser = validatePassword($username,$password);
+$isValidUser = validatePassword($custusername,$custpass);
 
 if($isValidUser)
 	{
-	$userType=getUserType($username);
+	$userType=getUserType($custusername);
 	if($userType =='ADMIN')
 		header("location:../admindashboard/examples/dashboard.html"); // redirect to admin page
 	else if($userType =='CUSTOMER')

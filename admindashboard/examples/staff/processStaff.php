@@ -6,7 +6,7 @@ if(isSet($_POST['addStaffButton']))
 	}
 else if(isSet($_POST['saveNewCarButton']))
 	{
-	addNewCar();
+	addNewStaff();
 	header('Location: staffList.php');
 	}
 else if(isSet($_POST['deleteStaffButton']))
