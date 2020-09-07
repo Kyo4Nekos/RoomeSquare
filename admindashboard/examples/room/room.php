@@ -97,4 +97,20 @@ $endDate = $_POST['endDate'];
  //if no room available, result will be empty
 
 }
+
+//searchByName function ==================
+function findStaffByName()
+{
+//create connection
+$con=mysqli_connect("localhost","hotel","hotel","hoteldb");
+if(!$con)
+	{
+	echo  mysqli_connect_error(); 
+	exit;
+	}
+	$sql = "SELECT * from rooms where roomType like '%".$_POST['searchValue']."%'";
+echo $sql;
+$qry = mysqli_query($con,$sql);//run query
+return $qry;  //return query
+}
 ?>
