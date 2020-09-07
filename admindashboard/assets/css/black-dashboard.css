@@ -17091,12 +17091,12 @@ table.tablesorter thead tr .headerSortDown {
   width: 23px;
 }
 
-.fixed-plugin .badge.active,
+.fixed-plugin .badge,
 .fixed-plugin .badge:hover {
   border-color: #1d253b;
 }
 
-.fixed-plugin .light-badge,
+.fixed-plugin .light-badge.active,
 .fixed-plugin .dark-badge {
   margin: 0;
   border: 1px solid #1d8cf8;

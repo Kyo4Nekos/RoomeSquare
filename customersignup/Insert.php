@@ -45,6 +45,6 @@ else
 	echo 'Your username or Password has been inserted.';
 }
  
- header("refresh:2; url=account_verify.html");
+ header("refresh:2; url=account_verify.php");
 
 ?>

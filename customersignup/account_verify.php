@@ -161,8 +161,12 @@
                                     <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
                                         <table border="0" cellspacing="0" cellpadding="0">
                                             <tr>
-                                                <td align="center" style="border-radius: 3px;" bgcolor="#990099"><a href="../customerlogin/index.html" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #a3a375; display: inline-block;">Confirm Account</a></td>
-</td>
+                                                <td>
+                                                <form method="POST" action="">
+                                                <input type="email" class="input-lg form-control" name="email" placeholder="Email"><br>
+                                                <button type='submit' name='Go'>Confirm Account</button>
+                                                </form>
+                                                </td>
                                             </tr>
                                         </table>
                                     </td>
@@ -224,7 +228,7 @@ if (isset($_POST['Go'])) {
         
          
         Please click this link to activate your account:
-        http://localhost/masterfolder_roomesquare/forgetPass/accActive.php?email=' . $_POST['email'] . '&password=' . $_POST['password'] . '
+        http://localhost/masterfolder_roomesquare/AccActive/accActive.php?email=' . $_POST['email'] . '
          
         ';
     $headers = 'From: kloveboutique420@gmail.com';
