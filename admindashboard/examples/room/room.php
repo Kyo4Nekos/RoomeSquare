@@ -1,5 +1,5 @@
 <?php
-//addNewStaff function==================
+//addNewRoom function==================
 function addNewRoom()
 {
 $con = mysqli_connect("localhost","hotel","hotel","hoteldb");
@@ -9,15 +9,11 @@ if(!$con)
 	exit;
 	}
  //collect data from post array
- $userType = $_POST['userType'];
- $custusername = $_POST['custusername'];
- $custname = $_POST['custname'];
- $custemail = $_POST['custemail'];
- $custpass = $_POST['custpass'];
- $custphoneno = $_POST['custphoneno'];
+ $roomType = $_POST['roomType'];
+ $bedType = $_POST['bedType'];
+ $price = $_POST['price'];
   
-  $sql="INSERT INTO customer(userType, custusername,custname,custemail,custpass,custphoneno)
-	VALUES ('$userType','$custusername','$custname','$custemail','$custpass','$custphoneno')";
+  $sql="INSERT INTO rooms(roomType, bedType,price) VALUES ('$roomType','$bedType','$price')";
  
 //echo $sql;
 	$qry = mysqli_query($con,$sql);
@@ -25,7 +21,7 @@ if(!$con)
 }
 
 //getListOfCar function ==================
-function getListOfStaff()
+function getListOfRoom()
 {
 //create connection
 $con=mysqli_connect("localhost","hotel","hotel","hoteldb");
@@ -34,13 +30,13 @@ if(!$con)
 	echo  mysqli_connect_error(); 
 	exit;
 	}
-$sql = "SELECT * from customer WHERE userType='STAFF'";
+$sql = "SELECT * from rooms WHERE roomType='Room'";
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }
 
 //delete function ==================
-function deleteStaff()
+function deleteRoom()
 {
 $con = mysqli_connect("localhost","hotel","hotel","hoteldb");
 if(!$con)
@@ -49,76 +45,17 @@ if(!$con)
 	exit;
 	}
 
- $regNumber = $_POST['staffIdToDelete'];//get selected regNumber to delete
+ $roomType = $_POST['RoomToDelete'];//get selected regNumber to delete
   
-  $sql="DELETE from customer
-		where userType ='STAFF'";
+  $sql="DELETE from rooms
+		where roomType ='Room'";
 		echo $sql;
 	$qry = mysqli_query($con,$sql);
 
 }
 
-//searchByName function ==================
-function findStaffByName()
-{
-//create connection
-$con=mysqli_connect("localhost","hotel","hotel","hoteldb");
-if(!$con)
-	{
-	echo  mysqli_connect_error(); 
-	exit;
-	}
-	$sql = "SELECT * from customer where userType = 'STAFF' AND custname like '%".$_POST['searchValue']."%'";
-echo $sql;
-$qry = mysqli_query($con,$sql);//run query
-return $qry;  //return query
-}
-//findCarByUsername function ==================
-function findCarByUsername()
-{
-//create connection
-$con=mysqli_connect("localhost","hotel","hotel","hoteldb");
-if(!$con)
-	{
-	echo  mysqli_connect_error(); 
-	exit;
-	}
-$sql = "SELECT * from customer where custusername like '%".$_POST['searchValue']."%'";
-echo $sql;
-$qry = mysqli_query($con,$sql);//run query
-return $qry;  //return query
-}
-function findCarByModel()
-{
-//create connection
-$con=mysqli_connect("localhost","web2","web2","cardb");
-if(!$con)
-	{
-	echo  mysqli_connect_error(); 
-	exit;
-	}
-$sql = "select * from car where model like '%".$_POST['searchValue']."%'";
-
-$qry = mysqli_query($con,$sql);//run query
-return $qry;  //return query
-}
-//============getCarInformation
-function getCarInformation($regNum)
-{
-//create connection
-$con=mysqli_connect("localhost","web2","web2","cardb");
-if(!$con)
-	{
-	echo  mysqli_connect_error(); 
-	exit;
-	}
-$sql = "select * from car where regNumber = '".$regNum."'";
-
-$qry = mysqli_query($con,$sql);//run query
-return $qry;  //return query
-}
-//================updateCarInformation
-function updateStaffInformation()
+//================updateRoomInformation
+function updateRoomInformation()
 {
 //create connection
 $con=mysqli_connect("localhost","hotel","hotel","hoteldb");
@@ -128,35 +65,36 @@ if(!$con)
 	exit;
 	}
 //get the data to update
- $custname = $_POST['custname'];
- $custusername = $_POST['custusername'];
- $custemail = $_POST['custemail'];
- $custpass = $_POST['custpass'];
- $custphoneno = $_POST['custphoneno'];
+ $price = $_POST['price'];
+ $bedType = $_POST['bedType'];
  
- 
-$sql = 'UPDATE customer SET  custname = "'.$custname.'", custusername = "'.$custusername.'", 
-custemail = "'.$custemail.'", custpass = "'.$custpass.'", custphoneno = "'.$custphoneno.'" WHERE userType = "STAFF"';
+$sql = 'UPDATE rooms SET  price = "'.$price.'", bedType = "'.$bedType.'",  WHERE roomType = "Room"';
 	echo $sql;
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }
-//getAvailableCarOnTheseDate function ==================
-function getAvailableCarOnTheseDate($startDate ,$endDate)
+
+//getAvailableRoomOnTheseDate function ==================
+function getAvailableRoomOnTheseDate($startDate ,$endDate)
 {
-$con = mysqli_connect('localhost','web2','web2','cardb');
- if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
- $sqlStr = "select regNumber,brand, model,price from car
-where regNumber not in(
-(SELECT distinct regNumber from bookings";
- $sqlStr .= " where Date_rent_start BETWEEN '".$startDate."' AND '".$endDate."'";
- $sqlStr .= " or Date_rent_end BETWEEN '".$startDate."' AND '".$endDate."'))";
+//create connection
+$con=mysqli_connect("localhost","hotel","hotel","hoteldb");
+if(!$con)
+	{
+	echo  mysqli_connect_error(); 
+	exit;
+	}
+
+$startDate = $_POST['startDate'];
+$endDate = $_POST['endDate'];
+
+ $sqlStr = "select roomType,bedType, price from rooms where roomType not in ((SELECT distinct roomType from bookings";
+ $sqlStr .= " where startDate BETWEEN '".$startDate."' AND '".$endDate."'";
+ $sqlStr .= " or endDate BETWEEN '".$startDate."' AND '".$endDate."'))";
  echo $sqlStr;
  $result = mysqli_query($con,$sqlStr);
- return $result;//if no car available, result will be empty
+ return $result;
+ //if no room available, result will be empty
 
 }
 ?>

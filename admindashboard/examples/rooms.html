@@ -20,12 +20,26 @@
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
 
+<?php
+//create connection								
+$con=mysqli_connect("localhost","hotel","hotel","hoteldb");
+if (!$con) {
+	echo  mysqli_connect_error();
+	exit;
+}
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+session_start();
+$custusername=$_SESSION['username'];
+
+?>
+
 <body class="">
   <div class="wrapper">
     <div class="sidebar">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
-    -->
       <div class="sidebar-wrapper">
         <div class="logo">
 		  <a href="javascript:void(0)" class="simple-text logo-mini">
@@ -58,7 +72,8 @@
       </div>
     </div>
     <div class="main-panel">
-      <!-- Navbar -->
+
+      <!-- Navbar Begin -->
       <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
         <div class="container-fluid">
           <div class="navbar-wrapper">
@@ -118,6 +133,8 @@
         </div>
       </div>
       <!-- End Navbar -->
+
+      <!--Table Begin-->
       <div class="content">
         <div class="row">
           <div class="col-md-12">
@@ -125,71 +142,57 @@
               <div class="card-header">
                 <h3 class="title">Rooms Details Update</h3>       
               </div>
-              <div class="content">
-        		<div class="row">
-         		 <div class="col-md-12">
-          		  <div class="card ">          		    
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table tablesorter " id="">
-                    <thead class=" text-primary">
-                      <tr><th>Name</th>
-                        <th>Bed Type</th>
-                        <th>Price</th>
-						<th class= "text-center">Remove</th></tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          Standard Double Room
-                        </td>
-                        <td>
-                          1x Queen Bed
-                        </td>
-                        <td>
-                          RM 110 per night
-                        </td>
-						<td class="td-actions text-center">
+              <?php
+              //add room menu
+                echo '<form action = "processRoom.php" method ="POST">';
+	              echo '<br><input type = "submit" name="addRoomButton" value ="Add New Room">';
+                echo '</form>';
+                echo '<div class="content">';
+        		    echo '<div class="row">';
+         		    echo '<div class="col-md-12">';
+          	    echo	  '<div class="card ">';          		    
+                echo  '<div class="card-body">';
+                echo    '<div class="table-responsive">';
+                echo  '<table class="table tablesorter " id="">';
+                echo    '<thead class=" text-primary">';
+                echo      '<tr><th>Name</th>';
+                echo        '<th>Bed Type</th>';
+                echo        '<th>Price</th>';
+						    echo        '<th class= "text-center">Remove</th></tr>';
+                echo    '</thead>';
+                echo    '<tbody>';
+                echo      '<tr>';
+                echo        '<td>Standard Double Room</td>';
+                echo        '<td>1x Queen Bed</td>';
+                echo        '<td> RM 110 per night</td>';
+                echo     '<td class="td-actions text-center">
                           <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Delete Task">
                             <i class="tim-icons icon-trash-simple"></i>
                           </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Standard Twin Room
-                        </td>
-                        <td>
-                          2x Single Beds
-                        </td>
-                        <td>
-                          RM 110 per night
-                        </td>
-						<td class="td-actions text-center">
-                          <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Delete Task">
-                            <i class="tim-icons icon-trash-simple"></i>
-                          </button>
-                        </td>
-                      </tr>
-					<tr></tr>	
-						<tr><td class="td-actions text-left">
+                        </td>'; 
+                echo      '</tr>';
+                echo      '<tr><td class="td-actions text-left">
                           <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Add Task">
                             <i class="tim-icons icon-simple-add"></i> Add New Room
                           </button>
-                        </td></tr>
-                    </tbody>
+                        </td></tr>';  	
+						    echo    '</tbody>
                   </table>
                 </div>
               </div>
             </div>
           </div>             
                   </div>
-                </div>
+                </div>';
+                    ?>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <!--End Table-->
+
+      <!--Footer Begin-->
       <footer class="footer">
         <div class="container-fluid">
           <div class="copyright">
@@ -201,7 +204,10 @@
           </div>
         </div>
       </footer>
+    <!--End Footer-->
     </div>
+
+  <!--Sidebar Begin-->
   <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
       <a href="#" data-toggle="dropdown">
@@ -228,6 +234,7 @@
       </ul>
     </div>
   </div>
+  <!--Sidebar Ends-->
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>

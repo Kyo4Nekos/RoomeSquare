@@ -11,40 +11,31 @@
 </style>
 
 <?php
-//updateStaffForm.php
-include "staff.php";
-$userType=$_POST['staffIdToUpdate'];
-$qry = getCarInformation($userType);//call function to get detail car data
+//updateRoomForm.php
+include "room.php";
+$roomType=$_POST['RoomIdToUpdate'];
+$qry = getCarInformation($roomType);//call function to get detail car data
 $row = mysqli_fetch_assoc($qry);
 //assign data to variable
-$custname = $row['custname'];
-$custusername = $row['custusername'];
-$custemail =$row['custemail'];
-$custpass = $row['custpass'];
-$custphoneno =$row['custphoneno'];
-
+$roomType = $row['roomType'];
+$bedType = $row['bedType'];
+$price =$row['price'];
 
 echo '<div id ="set" style="line-height: 1.8;">';
-echo '<form action="processStaff.php" method="post">';
-echo '<fieldset><legend>Staff Information Update:</legend>';
+echo '<form action="processRoom.php" method="post">';
+echo '<fieldset><legend>Room Information Update:</legend>';
 
 
-echo '<br>Staff Name :';
-echo "<input type='text' name='custname' value='$custname'>";
+echo '<br>Room Type :';
+echo "<input type='text' name='roomType' value='$roomType'>";
 
-echo '<br>Staff Username :';
-echo "<input type='text' name='custusername' value='$custusername'>";
+echo '<br>Bed Type :';
+echo "<input type='text' name='bedType' value='$bedType'>";
 
-echo '<br>Staff Email :';
-echo "<input type='text' name='custemail' value='$custemail'>";
+echo '<br>Price per night :';
+echo "<input type='text' name='price' value='$price'>";
 
-echo '<br>Staff Contact Number :';
-echo "<input type='text' name='custphoneno' value='$custphoneno'>";
-
-echo '<br>Staff Password :';
-echo "<input type='text' name='custpass' value='$custpass'>";
-
-echo '<br><br><input type="submit" name="updateStaffButton" value="Save">';
+echo '<br><br><input type="submit" name="updateRoomButton" value="Save">';
 echo '<input type ="reset" name="resetButton" value="reset">';
 
 echo '</fieldset>';

@@ -2,12 +2,12 @@
 include "rooms.php";
 if(isSet($_POST['addRoomButton']))
 	{
-	header('Location: staffInfo.php');
+	header('Location: roomInfo.php');
 	}
 else if(isSet($_POST['saveNewRoomButton']))
 	{
 	addNewRoom();
-	header('Location: staffList.php');
+	header('Location: roomList.php');
 	}
 else if(isSet($_POST['deleteRoomButton']))
 	{
