@@ -11,7 +11,7 @@
 </style>
 
 <?php
-//carInfo.php
+//addnewStaff
 
 echo '<div id ="set" style="line-height: 1.8;">';
 

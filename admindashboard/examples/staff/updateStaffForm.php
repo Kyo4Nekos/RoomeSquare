@@ -11,7 +11,7 @@
 </style>
 
 <?php
-//updateCarForm.php
+//updateStaffForm.php
 include "staff.php";
 $userType=$_POST['staffIdToUpdate'];
 $qry = getCarInformation($userType);//call function to get detail car data
