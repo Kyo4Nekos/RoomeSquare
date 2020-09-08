@@ -14,7 +14,7 @@
 </head>
 <?php
 //create connection								
-$con=mysqli_connect("localhost","hotel","hotel","hoteldb");
+$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
 if (!$con) {
 	echo  mysqli_connect_error();
 	exit;
@@ -79,7 +79,7 @@ $custusername=$_SESSION['username'];
 			<?php
 				if (isset($_POST['upload'])) {
 
-				$conn = mysqli_connect("localhost","hotel","hotel","hoteldb");
+				$conn = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
 
 				if (count($_FILES) > 0) {
 					if (is_uploaded_file($_FILES['image']['tmp_name'])) {

@@ -1,7 +1,7 @@
 <?php
      session_start();
 	if (isset($_POST['updateButton'])) {
-		$con = mysqli_connect("localhost","hotel","hotel","hoteldb");
+		$con = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
         if (!$con) {
             echo  mysqli_connect_error();
             exit;

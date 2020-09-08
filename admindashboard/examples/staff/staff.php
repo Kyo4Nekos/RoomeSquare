@@ -2,7 +2,7 @@
 //addNewStaff function==================
 function addNewStaff()
 {
-$con = mysqli_connect("localhost","hotel","hotel","hoteldb");
+$con = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
 if(!$con)
 	{
 	echo mysqli_connect_error();
@@ -28,7 +28,7 @@ if(!$con)
 function getListOfStaff()
 {
 //create connection
-$con=mysqli_connect("localhost","hotel","hotel","hoteldb");
+$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 
@@ -42,17 +42,17 @@ return $qry;  //return query
 //delete function ==================
 function deleteStaff()
 {
-$con = mysqli_connect("localhost","hotel","hotel","hoteldb");
+$con = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
 if(!$con)
 	{
 	echo mysqli_connect_error();
 	exit;
 	}
 
- $regNumber = $_POST['staffIdToDelete'];//get selected regNumber to delete
+ $e = $_POST['staffIdToDelete'];//get selected regNumber to delete
   
   $sql="DELETE from customer
-		where userType ='STAFF'";
+		where custname ='".$e."' ";
 		echo $sql;
 	$qry = mysqli_query($con,$sql);
 
@@ -62,7 +62,7 @@ if(!$con)
 function findStaffByName()
 {
 //create connection
-$con=mysqli_connect("localhost","hotel","hotel","hoteldb");
+$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 
@@ -77,7 +77,7 @@ return $qry;  //return query
 function findCarByUsername()
 {
 //create connection
-$con=mysqli_connect("localhost","hotel","hotel","hoteldb");
+$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 
@@ -121,7 +121,7 @@ return $qry;  //return query
 function updateStaffInformation()
 {
 //create connection
-$con=mysqli_connect("localhost","hotel","hotel","hoteldb");
+$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 

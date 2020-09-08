@@ -7,45 +7,21 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    K Boutique Hotel Administration
+    K Boutique Hotel Staff
   </title>
-  <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-  <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-  <!-- CSS Files -->
   <link href="../assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
-
-<?php
-//create connection								
-$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
-if (!$con) {
-	echo  mysqli_connect_error();
-	exit;
-}
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-session_start();
-$custusername=$_SESSION['username'];
-
-?>
 
 <body class="">
   <div class="wrapper">
     <div class="sidebar">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
-    -->
       <div class="sidebar-wrapper">
         <div class="logo">
-          <a href="javascript:void(0)" class="simple-text logo-mini">
+		  <a href="javascript:void(0)" class="simple-text logo-mini">
             KBH
           </a>
           <a href="javascript:void(0)" class="simple-text logo-normal">
@@ -53,28 +29,29 @@ $custusername=$_SESSION['username'];
           </a>
         </div>
         <ul class="nav">		  
-          <li class="active ">
+          <li>
             <a href="./dashboard.html">
               <i class="tim-icons icon-chart-pie-36"></i>
               <p>Dashboard</p>
             </a>
           </li>
           <li>
-            <a href="./icons.html">
+            <a href="./rooms.html">
               <i class="tim-icons icon-notes"></i>
               <p>Room</p>
             </a>
-          </li> 
-          <li>
-            <a href="./tables.html">
-              <i class="tim-icons icon-badge"></i>
-              <p>Staff</p>
+          </li>
+          <li class="active ">
+            <a href="./custbooking.php">
+              <i class="tim-icons icon-bullet-list-67"></i>
+              <p>Customer Booking Details</p>
             </a>
           </li>
         </ul>
       </div>
     </div>
     <div class="main-panel">
+
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
         <div class="container-fluid">
@@ -86,7 +63,7 @@ $custusername=$_SESSION['username'];
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:void(0)">Admin Profile</a>
+            <a class="navbar-brand" href="javascript:void(0)">Customer Booking Details</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -103,7 +80,7 @@ $custusername=$_SESSION['username'];
               <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
-                    <?php echo '<img src="imageView(1).php?custusername=' . $_SESSION['username'] . '" class="avatar img-circle img-thumbnail">'; ?>
+                    <img src="../assets/img/anime3.png" alt="Profile Photo">
                   </div>
                   <b class="caret d-none d-lg-block d-xl-block"></b>
                   <p class="d-lg-none">
@@ -114,7 +91,7 @@ $custusername=$_SESSION['username'];
                   <li class="nav-link"><a href="user.html" class="nav-item dropdown-item">Profile</a></li>
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a></li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-link"><a href="logout.php" class="nav-item dropdown-item">Log out</a></li>
+                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a></li>
                 </ul>
               </li>
               <li class="separator d-lg-none"></li>
@@ -135,142 +112,84 @@ $custusername=$_SESSION['username'];
         </div>
       </div>
       <!-- End Navbar -->
+
+
       <div class="content">
         <div class="row">
-          <div class="col-md-8">
-            <div class="card">
+          <div class="col-md-12">
+            <div class="card ">
               <div class="card-header">
-                <h5 class="title">Edit Profile</h5>
+                <h4 class="card-title"> Booking Details</h4>
               </div>
-              <div class="card-body">
-
-
               <?php
-					$sql = 'SELECT * FROM `customer` WHERE custusername = "' . $_SESSION['username'] . '"';
-					$result = mysqli_query($con, $sql) or trigger_error("Query Failed! SQL: $sql - Error: " . mysqli_error($con), E_USER_ERROR);
-					while ($row = mysqli_fetch_assoc($result)) {
 
-				/*	echo '<form action= "update.php" method= "POST">';
-					echo '<div class="row">';
-						echo        '<div class="column">';
-						
-					//echo '<div class="row mt-3">';
-					echo '<div class="col-md-6"><input type="text" size="50" class="form-control" name="username" value="'.$row['custusername'].'" placeholder="Username"></div>';
-					echo '<div class="col-md-6"><input type="text" size="50" class="form-control" name="fullname" value="'.$row['custname'].'" placeholder="Full Name"></div>';
-					//echo '</div>';
-					//echo '<div class="row mt-3">';
-					echo '<div class="col-md-6"><input type="text" size="50" class="form-control" name="email" value="'.$row['custemail'].'" placeholder="Email"></div>';
-					echo '<div class="col-md-6"><input type="text" size="50" class="form-control" name="phone" value="'.$row['custphoneno'].'" placeholder="Phone Number"></div>';
-					echo '</div>';
-          echo '</form>';*/
-          
-          echo '<form action= "update.php" method= "POST">';
-          echo   '<div class="row">';
-          echo    '<div class="col-md-5 pr-md-1">';
-          echo       '<div class="form-group">';
-          echo          '<label>Company (disabled)</label>';
-          echo          '<input type="text" class="form-control" disabled="" placeholder="Company" value="K Boutique Hotel">';
-          echo        '</div>';
-          echo      '</div>';
-          echo     '<div class="col-md-3 px-md-1">';
-          echo        '<div class="form-group">';
-          echo          '<label>Username</label>';
-          echo          '<input type="text" class="form-control" value="'.$row['custusername'].'" placeholder="Username" name="username">';
-          echo        '</div>';
-          echo      '</div>';
-          
-          echo    '</div>';
-				  echo '<div class="row">';
-          echo      '<div class="col-md-6 pr-md-1">';
-          echo        '<div class="form-group">';
-          echo          '<label>Email Address</label>';
-          echo         '<input type="email" class="form-control" value="'.$row['custemail'].'" placeholder="Email" name="email">';
-          echo        '</div>';
-          echo      '</div>';
-          echo    '</div>';
-          echo    '<div class="row">';
-          echo      '<div class="col-md-6 pr-md-1">';
-          echo        '<div class="form-group">';
-          echo          '<label>Full Name</label>';
-          echo          '<input type="text" class="form-control" value="'.$row['custname'].'" placeholder="Name" name="fullname">';
-          echo        '</div>';
-          echo      '</div>';
-          echo    '</div>';
-          echo    '<div class="row">';
-          echo      '<div class="col-md-6 pr-md-1">';
-          echo       '<div class="form-group">';
-          echo          '<label>Phone</label>';
-          echo          '<input type="text" class="form-control" value="'.$row['custphoneno'].'" placeholder="Phone Number" name="phone">';
-          echo        '</div>';
-          echo      '</div>';
-          echo    '</div>';
-          echo    '<div class="card-footer">';
-          echo  '<button type="submit" name="updateButton" class="btn btn-primary profile-button">Save</button>';
-          echo '</div>';
-          echo  '</form>';
-            }
-            
-				?></div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card card-user">
-              <div class="card-body">
-			  <?php
-					if (isset($_POST['upload'])) {
+                include "book.php";
+                echo '<h1>K Boutique Room List</h1>';
 
-					$conn = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
+                //===================== search form=====
+                displaySearchOption();
+                  if(isSet($_POST['searchByBookType']))
+	                  $qry = findBookByBookType(); //call function in book.php
+                  else
+                  	$qry = getListOfBook();//display all book
 
-					if (count($_FILES) > 0) {
-						if (is_uploaded_file($_FILES['image']['tmp_name'])) {
-							//require_once "db.php";
-							$imgData = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-							$imageProperties = getimagesize($_FILES['image']['tmp_name']);
 
-							$sql = "UPDATE `customer` SET `imageData` = '{$imgData}', imageType = '{$imageProperties['mime']}' WHERE `customer`.`custusername` = '" . $_SESSION['username'] . "'";
-							//$sql = "INSERT INTO admin(imageType ,imageData) VALUES('{$imageProperties['mime']}', '{$imgData}')";
-							$current_id = mysqli_query($conn, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($conn));
-							if (isset($current_id)) {
+              echo '<form action = "processBook.php" method ="POST">';
+                echo '<br><input type = "submit" name="addBookButton" value ="Add New Book">';
+              echo '</form>';
+              echo '<div class="card-body">';
+                echo '<div class="table-responsive">';
+                  echo '<table class="table tablesorter " id="">';
+                    echo '<thead class=" text-primary">';
+                      echo '<tr>';
+                        echo    '<th>Room Type: </th>';
+	                    	echo '<th>Bed Type: </th>';
+                        echo '<th>Price per Night: </th>';
+                        echo '<th>Amount Due: RM </th>';
+                        echo '<th>Start Date: </th>';
+                        echo '<th>End Date: </th>';
+		                    echo '<th>Delete</th>';
+		                    echo '<th>Update</th>';  
+                      echo '</tr>';
+                    echo '</thead>';
+                    echo '<tbody>';
+                    while($row=mysqli_fetch_assoc($qry))//Display book information
+                      {
+                        $startDate=date_create($row['startDate']);
+                        $endDate=date_create($row['endDate']);
 
-								//mysqli_close($con);     
-							}
-								//mysqli_close($con); 
-							}
-						}
-					}
-			  ?>
-                <p class="card-text">
-                  <div class="author">
-                    <div class="block block-one"></div>
-                    <div class="block block-two"></div>
-                    <div class="block block-three"></div>
-                    <div class="block block-four"></div>
-					<form method="POST" action="" enctype="multipart/form-data">
-						<div class="text-center">
-							<?php echo '<img src="imageView(1).php?custusername=' . $_SESSION['username'] . '" class="avatar img-circle img-thumbnail">'; ?>
-							<br><br>
+                      echo '<tr>';
+                        echo '<td>'.$row['roomType'].'</td>';
+                        echo '<td>'.$row['bedType'].'</td>';
+                        echo '<td>'.$row['price'].'</td>';
+                        echo '<td>'.number_format($row['Amount_due'],2).'</td>';
+                        echo '<td>'.date_format($startDate,"d/m/Y").'</td>';
+                        echo '<td>'.date_format($endDate,"d/m/Y").'</td>';
 
-							<input type="file" name="image" class="text-center center-block file-upload"> <br><br>
-							<div class="form-group">
+                        //delete menu
+                        echo '<td>';
+                          echo '<form action="processBook.php" method="post" >';
+                          echo "<input type='hidden' value='".$row['bookType']."' name='BookToDelete'>";
+                          echo '<input type="submit" name="deleteBookButton" value="Delete">';
+                          echo '</form>';
+                        echo '</td>';
 
-							<input type='submit' name='upload' class='btn btn-primary  vertical-center' style="background-color: #c9c9a3; border-color: #bfbf9d">
-
-							</div>
-						</div><br>
-					</form>
-                    <!-- <a href="javascript:void(0)">
-                      <img class="avatar" src="../assets/img/emilyz.jpg" alt="...">
-                      <h5 class="title">Delila Ahmad</h5>
-                    </a>
-                    <p class="description">
-                      Ceo/Co-Founder
-                    </p>
-                  </div> -->
-                </p>
-                
+                        //update menu
+                        echo '<td>';
+                          echo '<form action="updateBookForm.php" method="post" >';
+                          echo "<input type='hidden' value='".$row['bookType']."' name='BookToUpdate'>";
+                          echo '<input type="submit" name="updateBookButton" value="Update">';
+                          echo '</form>';
+                        echo '</td>';
+                      echo '</tr>'; 
+                        
+                    echo '</tbody>';
+                  echo '</table>';
+                ?>
+                </div>
               </div>
             </div>
-          </div>
+			</div>
         </div>
       </div>
       <footer class="footer">
@@ -308,7 +227,7 @@ $custusername=$_SESSION['username'];
           <span class="badge light-badge mr-2"></span>
           <span class="badge dark-badge ml-2"></span>
           <span class="color-label">DARK MODE</span>
-		  </li>
+        </li>
       </ul>
     </div>
   </div>

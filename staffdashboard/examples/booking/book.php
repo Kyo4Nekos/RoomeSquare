@@ -1,6 +1,7 @@
 <?php
+//book.php
 //addNewRoom function==================
-function addNewRoom()
+function addNewBook()
 {
 $con = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
 if(!$con)
@@ -12,8 +13,11 @@ if(!$con)
  $roomType = $_POST['roomType'];
  $bedType = $_POST['bedType'];
  $price = $_POST['price'];
+ $amountDue = $_POST['amountDue'];
+ $startDate = $_POST['startDate'];
+ $endDate = $_POST['endDate'];
   
-  $sql="INSERT INTO rooms(roomType, bedType,price) VALUES ('$roomType','$bedType','$price')";
+  $sql="INSERT INTO rooms(roomType, bedType, price, amountDue, startDate, endDate) VALUES ('$roomType','$bedType','$price', '$amountDue', '$startDate','$endDate')";
  
 //echo $sql;
 	$qry = mysqli_query($con,$sql);
@@ -21,8 +25,8 @@ if(!$con)
  return $qry;
 }
 
-//getListOfCar function ==================
-function getListOfRoom()
+//getListOfBook function ==================
+function getListOfBook()
 {
 //create connection
 $con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
@@ -37,7 +41,7 @@ return $qry;  //return query
 }
 
 //delete function ==================
-function deleteRoom()
+function deleteBook()
 {
 $con = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
 if(!$con)
@@ -46,7 +50,7 @@ if(!$con)
 	exit;
 	}
 
- $roomType = $_POST['RoomToDelete'];//get selected regNumber to delete
+ $roomType = $_POST['BookToDelete'];//get selected regNumber to delete
   
   $sql="DELETE from rooms
 		where roomType ='".$roomType."'";
@@ -56,7 +60,7 @@ if(!$con)
 }
 
 
-function getRoomInformation($roomType)
+function getBookInformation($roomType)
 {
 //create connection
 $con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
@@ -72,8 +76,8 @@ return $qry;  //return query
 }
 
 
-//================updateRoomInformation
-function updateRoomInformation()
+//================updateBookInformation
+function updateBookInformation()
 {
 //create connection
 $con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
@@ -86,6 +90,9 @@ if(!$con)
  $roomType = $_POST['roomType'];
  $price = $_POST['price'];
  $bedType = $_POST['bedType'];
+ $amountDue = $_POST['amountDue'];
+ $startDate = $_POST['startDate'];
+ $endDate = $_POST['endDate'];
  $previous = $_POST['roomTypePrevious'];
 $sql = 'UPDATE rooms SET price= "'.$price.'", bedType = "'.$bedType.'", roomType = "'.$roomType.'"  WHERE roomType= "'.$previous.'"';
 	echo $sql;
@@ -93,8 +100,8 @@ $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }
 
-//getAvailableRoomOnTheseDate function ==================
-function getAvailableRoomOnTheseDate($startDate ,$endDate)
+//getAvailableBookOnTheseDate function ==================
+function getAvailableBookOnTheseDate($startDate ,$endDate)
 {
 //create connection
 $con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
@@ -118,7 +125,7 @@ $endDate = $_POST['endDate'];
 }
 
 //searchByName function ==================
-function findStaffByName()
+function findBookByName()
 {
 //create connection
 $con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");

@@ -43,7 +43,8 @@ while($row=mysqli_fetch_assoc($qry))//Display car information
   //delete menu
   echo '<td>';
 			echo '<form action="processStaff.php" method="post" >';
-			echo "<input type='hidden' value='$userType' name='staffIdToDelete'>";
+			echo "<input type='hidden' value='".$row['custname']."' name='staffIdToDelete'>";
+			//echo "<input type='hidden' value='".$row['custname']."' name='staffId'>";
 			echo '<input type="submit" name="deleteStaffButton" value="Delete">';
 			echo '</form>';
   echo '</td>';

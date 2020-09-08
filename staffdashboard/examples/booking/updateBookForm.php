@@ -12,8 +12,8 @@
 
 <?php
 //updateRoomForm.php
-include "room.php";
-$roomType=$_POST['RoomToUpdate'];
+include "book.php";
+$roomType=$_POST['BookToUpdate'];
 $qry = getRoomInformation($roomType);
 $row = mysqli_fetch_assoc($qry);
 //assign data to variable

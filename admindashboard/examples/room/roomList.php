@@ -35,19 +35,18 @@ while($row=mysqli_fetch_assoc($qry))//Display car information
   //delete menu
   echo '<td>';
 			echo '<form action="processRoom.php" method="post" >';
-			//echo "<input type='hidden' value='$userType' name='staffIdToDelete'>";
+			echo "<input type='hidden' value='".$row['roomType']."' name='RoomToDelete'>";
 			echo '<input type="submit" name="deleteRoomButton" value="Delete">';
 			echo '</form>';
   echo '</td>';
   //update menu
   echo '<td>';
-			echo '<form action="updateStaffForm.php" method="post" >';
-			//echo "<input type='hidden' value='$userType' name='staffIdToUpdate'>";
+			echo '<form action="updateRoomForm.php" method="post" >';
+			echo "<input type='hidden' value='".$row['roomType']."' name='RoomToUpdate'>";
 			echo '<input type="submit" name="updateRoomButton" value="Update">';
 			echo '</form>';
   echo '</td>';
-  echo '</tr>';  
-  $i++;
+  echo '</tr>'; 
   }
 	  
 echo '</table>';
