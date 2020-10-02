@@ -1,11 +1,9 @@
-<?php	
-	session_start(); 
-	if (!(isset($_SESSION['username']) && $_SESSION['pass']{
-	header ("Location: ../customerlogin/index.html");
-}
-?>
-
 <!DOCTYPE html>
+<?php	
+    session_start();
+    if (!(isset($_SESSION['username']) && ($_SESSION['pass'])))
+        header ("Location: ../customerlogin/index.html");
+?>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -35,9 +33,9 @@
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
-						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="../Homepage_signIn/booking/room.html">Rooms</a>
+						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="booking/booking.html">Rooms</a>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="facility/facility.html">Facilities</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../Homepage_signIn/booking/contact.html">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="booking/contactUs/contact.html">Contact Us</a></li>
 						<li class="dropdown nav-item">
                 		<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   		<div>
@@ -47,8 +45,10 @@
                 		</a>
                 		<ul class="dropdown-menu dropdown-navbar">
                   		<li class="nav-link"><a href="../Homepage_signIn/profile.php" class="nav-item dropdown-item">My Profile</a></li>
-                  		<li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">My Booking</a></li>
-                  		<li class="dropdown-divider"></li>
+                          <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">My Booking</a></li>
+                          
+                          <li class="dropdown-divider"></li>
+                          <li class="nav-link"><a href="booking/contactUs/feedback.html" class="nav-item dropdown-item">Feedback</a></li>
                   		<li class="nav-link"><a href="../Homepage_signIn/logout.php" class="nav-item dropdown-item">Log Out</a></li></ul>
               			</li>
                     </ul>

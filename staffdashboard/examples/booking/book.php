@@ -3,7 +3,7 @@
 //addNewRoom function==================
 function addNewBook()
 {
-$con = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
+$con = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb");
 if(!$con)
 	{
 	echo mysqli_connect_error();
@@ -29,7 +29,7 @@ if(!$con)
 function getListOfBook()
 {
 //create connection
-$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
+$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 
@@ -43,7 +43,7 @@ return $qry;  //return query
 //delete function ==================
 function deleteBook()
 {
-$con = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
+$con = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb");
 if(!$con)
 	{
 	echo mysqli_connect_error();
@@ -63,7 +63,7 @@ if(!$con)
 function getBookInformation($roomType)
 {
 //create connection
-$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
+$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb");
 if(!$con)
     {
     echo  mysqli_connect_error(); 
@@ -80,7 +80,7 @@ return $qry;  //return query
 function updateBookInformation()
 {
 //create connection
-$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
+$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 
@@ -104,7 +104,7 @@ return $qry;  //return query
 function getAvailableBookOnTheseDate($startDate ,$endDate)
 {
 //create connection
-$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
+$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 
@@ -128,7 +128,7 @@ $endDate = $_POST['endDate'];
 function findBookByName()
 {
 //create connection
-$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
+$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 
@@ -138,5 +138,22 @@ if(!$con)
 echo $sql;
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
+}
+
+//getAvailableRoomOnTheseDate function ==================
+function getAvailableRoomOnTheseDate($startDate ,$endDate)
+{
+$con = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb");
+ if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+ $sqlStr = "select roomType,bedType,price from rooms";
+ $sqlStr .= " where Date_rent_start BETWEEN '".$startDate."' AND '".$endDate."'";
+ $sqlStr .= " or Date_rent_end BETWEEN '".$startDate."' AND '".$endDate."'))";
+ echo $sqlStr;
+ $result = mysqli_query($con,$sqlStr);
+ return $result;//if no room available, result will be empty
+
 }
 ?>

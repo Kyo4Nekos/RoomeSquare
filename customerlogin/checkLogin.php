@@ -18,7 +18,7 @@ if($isValidUser)
 	if($userType =='ADMIN')
 		header("location:../admindashboard/examples/dashboard.html"); // redirect to admin page
 	else if($userType =='CUSTOMER')
-		header("location:../Homepage_signin/index.html"); // redirect to customer menu page
+		header("location:../Homepage_signin/index.php"); // redirect to customer menu page
 	else
 		header("location:../staffdashboard/examples/dashboard.html"); // redirect to staff menu page
 	}

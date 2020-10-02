@@ -2,7 +2,7 @@
 //addNewRoom function==================
 function addNewRoom()
 {
-$con = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
+$con = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb");
 if(!$con)
 	{
 	echo mysqli_connect_error();
@@ -25,7 +25,7 @@ if(!$con)
 function getListOfRoom()
 {
 //create connection
-$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
+$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 
@@ -39,7 +39,7 @@ return $qry;  //return query
 //delete function ==================
 function deleteRoom()
 {
-$con = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
+$con = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb");
 if(!$con)
 	{
 	echo mysqli_connect_error();
@@ -59,7 +59,7 @@ if(!$con)
 function getRoomInformation($roomType)
 {
 //create connection
-$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
+$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb");
 if(!$con)
     {
     echo  mysqli_connect_error(); 
@@ -76,7 +76,7 @@ return $qry;  //return query
 function updateRoomInformation()
 {
 //create connection
-$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
+$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 
@@ -97,7 +97,7 @@ return $qry;  //return query
 function getAvailableRoomOnTheseDate($startDate ,$endDate)
 {
 //create connection
-$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
+$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 
@@ -121,7 +121,7 @@ $endDate = $_POST['endDate'];
 function findStaffByName()
 {
 //create connection
-$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
+$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 

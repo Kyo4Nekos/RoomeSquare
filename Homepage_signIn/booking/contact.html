@@ -96,26 +96,6 @@
                 </div>
             </div>
         </div>
-        <div class="menu-item">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-2">
-                        <div class="logo">
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="nav-menu">
-                            <nav class="mainmenu">
-                            </nav>
-                            <div class="nav-right search-switch">
-                                <i class="icon_search"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
     <!-- Header End -->
 
     <!-- Contact Section Begin -->
@@ -127,39 +107,20 @@
                         <h2>Contact Us</h2>
                         <p>K Boutique Hotel is located along Jalan Sungai Manik.
 						Easy access to the town centre which is just a 10 minutes drive away..</p>
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td class="c-o">Address:</td>
-                                    <td>No 13A, Lorong Shahbandar 3, Pusat Perniagaan Intan Flora, 36000 Teluk Intan, Perak, Malaysia </td>
-                                </tr>
-                                <tr>
-                                    <td class="c-o">Phone:</td>
-                                    <td>+605-620 5833</td>
-                                </tr>
-                                <tr>
-                                    <td class="c-o">Email:</td>
-                                    <td>info@kboutiquehotel.com.my</td>
-                                </tr>
-                                <tr>
-                                    <td class="c-o">Website:</td>
-                                    <td>www.kboutiquehotel.com.my</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                       
                     </div>
                 </div>
                 <div class="col-lg-7 offset-lg-1">
-                    <form action="#" class="contact-form">
+                    <form method="POST" action="contactSend.php" class="contact-form">
                         <div class="row">
                             <div class="col-lg-6">
-                                <input type="text" placeholder="Your Name">
+                                <input type="text" placeholder="Your Name" name="contactName">
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" placeholder="Your Email">
+                                <input type="text" placeholder="Your Email" name="contactEmail">
                             </div>
                             <div class="col-lg-12">
-                                <textarea placeholder="Your Message"></textarea>
+                                <textarea placeholder="Your Message"name="contactMessage"></textarea>
                                 <button type="submit">Submit Now</button>
                             </div>
                         </div>

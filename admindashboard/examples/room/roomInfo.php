@@ -16,7 +16,7 @@
 echo '<div id ="set" style="line-height: 1.8;">';
 
 echo '<form action="processRoom.php" method="post">';
-echo '<fieldset><legend>Enter Staff Information:</legend>';
+echo '<fieldset><legend>Enter Room Information:</legend>';
 echo 'Room Type:';
 echo '<input type="text" name="roomType" required>';
 echo '<br>Bed Type:';

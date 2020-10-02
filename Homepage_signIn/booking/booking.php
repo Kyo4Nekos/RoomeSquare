@@ -1,12 +1,8 @@
 <?php	
-	session_start(); 
-	if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
-		{
-		session_destroy()
-		header('location: ../customerlogin/index.html');
-		}
+    session_start();
+    if (!(isset($_SESSION['username']) && ($_SESSION['pass'])))
+        header ("Location: ../customerlogin/index.html");
 ?>
-
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -310,40 +306,16 @@
                 <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
                     <div class="booking-form">
                         <h3>Book a room</h3>
-                        <form action="#">
+                        <form action="bookingRoom/bookRoomForm.php" method="POST">
                             <div class="check-date">
                                 <label for="date-in">Check In:</label>
-                                <input type="text" class="date-input" id="date-in">
+                                <input type="text" class="date-input" id="date-in" name="startDate">
                                 <i class="icon_calendar"></i>
                             </div>
                             <div class="check-date">
                                 <label for="date-out">Check Out:</label>
-                                <input type="text" class="date-input" id="date-out">
+                                <input type="text" class="date-input" id="date-out" name="endDate">
                                 <i class="icon_calendar"></i>
-                            </div>
-                            <div class="select-option">
-                                <label for="guest">Guests:</label>
-                                <select id="guest">
-                                    <option value="">2 Adults</option>
-                                    <option value="">3 Adults</option>
-									<option value="">4 Adults</option>
-									<option value="">5 Adults</option>
-									<option value="">6 Adults</option>
-									<option value="">7 Adults</option>
-									<option value="">8 Adults</option>
-									<option value="">9 Adults</option>
-									<option value="">10 Adults</option>
-                                </select>
-                            </div>
-                            <div class="select-option">
-                                <label for="room">Room:</label>
-                                <select id="room">
-                                    <option value="">1 Room</option>
-                                    <option value="">2 Room</option>
-									<option value="">3 Room</option>
-									<option value="">4 Room</option>
-									<option value="">5 Room</option>
-                                </select>
                             </div>
                             <button type="submit">Check Availability</button>
                         </form>
@@ -367,16 +339,6 @@
     </footer>
     <!-- Footer Section End -->
 
-    <!-- Search model Begin -->
-    <div class="search-model">
-        <div class="h-100 d-flex align-items-center justify-content-center">
-            <div class="search-close-switch"><i class="icon_close"></i></div>
-            <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Search here.....">
-            </form>
-        </div>
-    </div>
-    <!-- Search model end -->
 
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>

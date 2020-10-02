@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","id14806959_hoteldb");
+$con = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb");
 if (!$con) {
 	echo  mysqli_connect_error();
 	exit;
