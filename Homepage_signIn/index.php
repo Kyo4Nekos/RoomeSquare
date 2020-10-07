@@ -33,7 +33,7 @@
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
-						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="booking/booking.html">Rooms</a>
+						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="booking/booking.php">Rooms</a>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="facility/facility.html">Facilities</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="booking/contactUs/contact.html">Contact Us</a></li>
 						<li class="dropdown nav-item">

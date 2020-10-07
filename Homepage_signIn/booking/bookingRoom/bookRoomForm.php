@@ -27,6 +27,7 @@ if (!(isset($_SESSION['username']) && ($_SESSION['pass']))){
 }
 //echo '<div class="w3-cell-row style="width:100%; margin:0 auto;">';
 echo $_SESSION['username'];
+
 echo '<div class="w3-container" style="width:80%; margin:0 auto;">';
 
 $custId = $_SESSION['username'];
@@ -64,7 +65,7 @@ function displayBookingDateOption()
 <tr><td> Start Date : </td><td><input type=date name=startDate><br></td></tr>
 <td> End Date : </td><td><input type=date name=endDate></td></tr>';
 echo '</table>';
-echo '<input class="w3-btn w3-light-blue" type=submit name = searchByDate value="Show Available Room">
+echo '<input class="w3-btn w3-light-blue" type="submit" name ="searchByDate" value="Show Available Room">
 </fieldset>
 </form>';
 //echo '</div>';
@@ -83,9 +84,8 @@ echo '<table border=1 style="width:100%;" class="w3-table w3-bordered w3-striped
 echo '<tr class="w3-light-blue">
 		<td>No</td>
 		<td>Room Type</td>
-		<td>Bedding</td>
+		<td>Bed Type</td>
 		<td>Room Price</td>
-		<td>Total Price</td>
 		<td>Book The Room</td>
 	</tr>';
 $i=1;
@@ -106,9 +106,6 @@ while($row=mysqli_fetch_assoc($qryAvailable))//Display car information
    $total = $Rental_period *  $row['price'];
    $tax=0.06 * $total;
    $Amount_due = $tax + $total;*/
-   $Amount_due = $price;
-   $_SESSION['amountToPay'] = $Amount_due;
-   $_SESSION['TypeRoom'] = $roomType;
    /*echo '<td>Total RM:'.number_format($total,2).'<br>Tax RM:'.number_format($tax,2).'<br>Amount Due RM:'.number_format($Amount_due,2);*/
    echo '</td>';
    echo '<td>';
@@ -150,9 +147,9 @@ $con = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb
   {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
- $sqlStr = "select roomType,bedType,price from rooms
- where roomType not in(
-	(SELECT distinct roomType from bookings";
+ $sqlStr = "SELECT roomType,bedType,price FROM rooms
+ WHERE roomType NOT IN(
+	(SELECT DISTINCT roomType FROM bookings";
  $sqlStr .= " where Date_rent_start BETWEEN '".$startDate."' AND '".$endDate."'";
  $sqlStr .= " or Date_rent_end BETWEEN '".$startDate."' AND '".$endDate."'))";
  $result = mysqli_query($con,$sqlStr);

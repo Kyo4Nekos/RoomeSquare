@@ -27,10 +27,14 @@ if (!(isset($_SESSION['username']) && ($_SESSION['pass']))){
        
        <h3 class="my-4 text-center">Amount to Pay</h3>
        <?php
-       echo '<input type="number" name="price" class="form-control mb-3 StripeElement StripeElement--empty" readonly value="'. $_SESSION['amountToPay'].'">';
-       echo "<input type='hidden' value='".$_SESSION['TypeRoom']."' name='roomTypeBook'>";
-       $FUCKER = 6900;
-       echo '<input type="number" name="amountToPay" value="'.$FUCKER.'" class="form-control mb-3 StripeElement StripeElement--empty" placeholder="Amount to Pay">';
+       echo '<input type="number" name="price" class="form-control mb-3 StripeElement StripeElement--empty" readonly value="'.$_GET['price'].'">';
+       echo "<input type='hidden' value='".$_GET['roomType']."' name='roomTypeToBook'>";
+       echo "<input type='hidden' value='".$_GET['startDate']."' name='startDate'>";
+       echo "<input type='hidden' value='".$_GET['endDate']."' name='endDate'>";
+       echo "<input type='hidden' value='".$_GET['Cust_no']."' name='custIdToBook'>";
+       
+
+      
        ?>
 
         <div id="card-element" class="form-control">
