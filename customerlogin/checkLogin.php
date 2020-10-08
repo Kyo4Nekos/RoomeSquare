@@ -16,7 +16,7 @@ if($isValidUser)
 	{
 	$userType=getUserType($custusername);
 	if($userType =='ADMIN')
-		header("location:../admindashboard/examples/dashboard.html"); // redirect to admin page
+		header("location:../admindashboard/examples/dashboard.php"); // redirect to admin page
 	else if($userType =='CUSTOMER')
 		header("location:../Homepage_signin/index.php"); // redirect to customer menu page
 	else

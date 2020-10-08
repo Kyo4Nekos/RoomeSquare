@@ -1,7 +1,7 @@
-<?php	
-	session_start(); 
-	if (!(isset($_SESSION['username']) && $_SESSION['pass']{
-    header ("Location: ../../customerlogin/index.html");
+<?php
+session_start();
+if (!(isset($_SESSION['username']) && ($_SESSION['pass']))){
+	header ("Location: ../customerlogin/index.html");
 }
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    K Boutique Hotel Staff
+    K Boutique Hotel Administration
   </title>
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -22,10 +22,10 @@
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
 
-<body class="">
+<body class="white-content">
   <div class="wrapper">
-    <div class="sidebar">
-      <div class="sidebar-wrapper">
+    <div class="sidebar" data="blue">
+      <div class="sidebar-wrapper" data="blue">
         <div class="logo">      
 		  <a href="javascript:void(0)" class="simple-text logo-mini">
             KBH
@@ -38,25 +38,26 @@
           <li class="active ">
             <a href="./dashboard.html">
               <i class="tim-icons icon-chart-pie-36"></i>
-              <p>Dashboard</p>
+              <p>Payment</p>
             </a>
           </li>
           <li>
-            <a href="./rooms.html">
+            <a href="./room/roomList.php">
               <i class="tim-icons icon-notes"></i>
               <p>Room</p>
             </a>
           </li>
           <li>
-            <a href="./custbooking.html">
-              <i class="tim-icons icon-bullet-list-67"></i>
-              <p>Customer Booking Details</p>
+            <a href="./stafflist.html">
+              <i class="tim-icons icon-badge"></i>
+              <p>Staff List</p>
             </a>
           </li>
         </ul>
       </div>
     </div>
-    <div class="main-panel">
+    <div class="main-panel" data="blue">
+
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
         <div class="container-fluid">
@@ -96,7 +97,7 @@
                   <li class="nav-link"><a href="user.php" class="nav-item dropdown-item">Profile</a></li>
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a></li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-link"><a href="logout.php" class="nav-item dropdown-item">Log out</a></li>
+                  <li class="nav-link"><a href="../examples/logout.php" class="nav-item dropdown-item">Log out</a></li>
                 </ul>
               </li>
               <li class="separator d-lg-none"></li>
@@ -117,180 +118,60 @@
         </div>
       </div>
       <!-- End Navbar -->
-      <div class="content">
-        <div class="row">
-          <div class="col-lg-6 col-md-12">
-            <div class="card card-tasks">
-              <div class="card-header ">
-                <h6 class="title d-inline">Tasks(5)</h6>
-                <p class="card-category d-inline">today</p>
-                <div class="dropdown">
-                  <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
-                    <i class="tim-icons icon-settings-gear-63"></i>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#pablo">Action</a>
-                    <a class="dropdown-item" href="#pablo">Another action</a>
-                    <a class="dropdown-item" href="#pablo">Something else</a>
-                  </div>
-                </div>
-              </div>
-              <div class="card-body ">
-                <div class="table-full-width table-presponsive">
-                  <table class="table">
-                    <tbody>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Update the Documentation</p>
-                          <p class="text-muted">Dwuamish Head, Seattle, WA 8:47 AM</p>
-                        </td>
-                        <td class="td-actions text-right">
-                          <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
-                            <i class="tim-icons icon-pencil"></i>
-                          </button>
-                        </td>
-						</tr>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Solve the issues</p>
-                          <p class="text-muted">Fifty percent of all respondents said they would be more likely to shop at a company </p>
-                        </td>
-                        <td class="td-actions text-right">
-                          <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
-                            <i class="tim-icons icon-pencil"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Release v2.0.0</p>
-                          <p class="text-muted">Ra Ave SW, Seattle, WA 98116, SUA 11:19 AM</p>
-                        </td>
-                        <td class="td-actions text-right">
-                          <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
-                            <i class="tim-icons icon-pencil"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Export the processed files</p>
-                          <p class="text-muted">The report also shows that consumers will not easily forgive a company once a breach exposing their personal data occurs. </p>
-                        </td>
-                        <td class="td-actions text-right">
-                          <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
-                            <i class="tim-icons icon-pencil"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Arival at export process</p>
-                          <p class="text-muted">Capitol Hill, Seattle, WA 12:34 AM</p>
-                        </td>
-                        <td class="td-actions text-right">
-                          <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
-                            <i class="tim-icons icon-pencil"></i>
-                          </button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <footer class="footer">
-        <div class="container-fluid">
-          <div class="copyright">
-            ©
-            <script>
-              document.write(new Date().getFullYear())
-            </script>2020 made with <i class="tim-icons icon-heart-2"></i> by
-            <a href="javascript:void(0)" target="_blank">K Boutique Hotel</a> for a better web.
-          </div>
-        </div>
-      </footer>
-    </div>
-  </div>
-  <div class="fixed-plugin">
-    <div class="dropdown show-dropdown">
-      <a href="#" data-toggle="dropdown">
-        <i class="fa fa-cog fa-2x"> </i>
-      </a>
-      <ul class="dropdown-menu">
-        <li class="header-title"> Sidebar Background</li>
-        <li class="adjustments-line">
-          <a href="javascript:void(0)" class="switch-trigger background-color">
-            <div class="badge-colors text-center">
-              <span class="badge filter badge-primary active" data-color="primary"></span>
-              <span class="badge filter badge-info" data-color="blue"></span>
-              <span class="badge filter badge-success" data-color="green"></span>
-            </div>
-            <div class="clearfix"></div>
-          </a>
-        </li>
-        <li class="adjustments-line text-center color-change">
-          <span class="color-label">LIGHT MODE</span>
-          <span class="badge light-badge mr-2"></span>
-          <span class="badge dark-badge ml-2"></span>
-          <span class="color-label">DARK MODE</span>
-        </li>
-      </ul>
-    </div>
-  </div>
+
+      <?php
+$con = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb");
+if(!$con)
+	{
+	echo mysqli_connect_error();
+	exit;
+	}
+//display Payment info	
+echo '<div style="width:1000px; margin:0 auto;">';
+echo '<table border=1 style="width:100%;" class="w3-table w3-bordered w3-striped w3-large w3-hoverable w3-card-4">';
+echo '<tr class="w3-light-blue">
+		<td>No</td>
+		<td>Booking Reference</td>
+		<td>Customer Name</td>
+		<td>Date Reserve</td>
+    <td>Room Type</td>
+    <td>Payment Status</td>
+    <td>Booking Status</td>
+	</tr>';
+$i=1;
+while($row=mysqli_fetch_assoc($qryAvailable))//Display car information
+  {
+   
+  echo '<tr class=" w3-hover-text-blue">';
+
+  echo '<td>'.$i.'</td>';
+  echo '<td>'.$row['Booking_reference'].'</td>';
+  echo '<td>'.$row['Reserved_by'].'</td>';
+  echo '<td>'.$row['Date_reserved'].'</td>';
+  echo '<td>'.$row['Date_reserved'].'</td>';
+  echo '<td>'.$row['roomType'].'</td>';
+  echo '<td>'.$row['Paid'].'</td>';
+
+  //update menu
+  echo '<td>';
+			echo '<form action="updateRoomForm.php" method="post" >';
+			echo '<input type="submit" name="updateRoomButton" value="Update">';
+      echo '</form>';
+      echo '<form action="updateRoomForm.php" method="post" >';
+			echo '<input type="submit" name="updateRoomButton" value="Update">';
+			echo '</form>';
+  echo '</td>';
+
+   
+  echo '</tr>';  
+  $i++;
+  }
+	  
+echo '</table>'; 
+echo '</div>';
+?>
+      
+      
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
