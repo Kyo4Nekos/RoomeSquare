@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php	
+    session_start();
+    if (!(isset($_SESSION['username']) && ($_SESSION['pass'])))
+        header ("Location: ../customerlogin/index.html");
+?>
+<!DOCTYPE html>
+<html lang="zxx">
 
 <head>
     <meta charset="UTF-8">
@@ -25,42 +32,118 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>K Boutique Hotel</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
-        <!-- Third party plugin CSS-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-            <div class="container" >
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">K Boutique Hotel</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../booking/room.html">Rooms</a>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../booking/contact.html">Contact Us</a></li>
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
 
-                    </ul>
+    <!-- Offcanvas Menu Section Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="canvas-open">
+        <i class="icon_menu"></i>
+    </div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="canvas-close">
+            <i class="icon_close"></i>
+        </div>
+        <div class="search-icon  search-switch">
+        </div>
+        <div class="header-configure-area">
+            <div class="language-option">
+                <img src="img/flag.jpg" alt="">
+                <span>EN <i class="fa fa-angle-down"></i></span>
+                <div class="flag-dropdown">
                 </div>
             </div>
+            <a href="#" class="bk-btn">Booking Now</a>
+        </div>
+        <nav class="mainmenu mobile-menu">
+            <ul>
+                <li class="active"><a href="./index.php">Home</a></li>
+                <li><a href="../Homepage/booking/room.html">Rooms</a></li>
+                <li><a href="booking/contact.html">Contact Us</a></li>
+                <li><a href="facility/facility.html">Facility</a></li>
+                <li><a href="./pages.php">Pages</a>
+                    <ul class="dropdown">
+                        <li><a href="./room-details.php">Room Details</a></li>
+                        <li><a href="#">Deluxe Room</a></li>
+                        <li><a href="#">Family Room</a></li>
+                        <li><a href="#">Premium Room</a></li>
+                    </ul>
+                </li>
+                <li><a href="./blog.php">News</a></li>
+                <li><a href="./contact.php">Contact</a></li>
+            </ul>
         </nav>
-        <!--End Of Navigation-->
+        <div id="mobile-menu-wrap"></div>
+        <div class="top-social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-tripadvisor"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+        <ul class="top-widget">
+            <li><i class="fa fa-phone"></i> +605-620 5833</li>
+            <li><i class="fa fa-envelope"></i> info@kboutiquehotel.com.my</li>
+        </ul>
+    </div>
+    <!-- Offcanvas Menu Section End -->
 
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="top-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <ul class="tn-left">
+                            <li><i class="fa fa-phone"></i> +605-620 5833</li>
+                            <li><i class="fa fa-envelope"></i> info@kboutiquehotel.com.my</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2">
+                        
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="nav-menu">
+                            <nav class="mainmenu">
+                                <ul>
+                                        <li><a href="../index.php">Home</a></li>
+                                        <li><a href="..//booking/room.php">Rooms</a></li>
+                                        <li class="active"><a href="./facilities">Facility</a></li>
+                                        <li><a href="../booking/contact.php">Contact Us</a></li>
+                                        <?php
+                                            echo ' <li><a href="#">'.$_SESSION['username'].'</a>';
+                                        ?>
+                                       
+                                        <ul class="dropdown">
+                                            <li><a href="../profile.php">My Profile</a></li>
+                                            <li><a href="../logout.php">Logout</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="nav-right search-switch">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+    
         <!-- Breadcrumb Section Begin -->
         <div class="breadcrumb-section">
             <div class="container">
@@ -69,7 +152,7 @@
                     <div class="breadcrumb-text">
                         <h2>Our Facilities</h2>
                         <div class="bt-option">
-                            <a href="../index.html">Home</a>
+                            <a href="../index.php">Home</a>
                             <span>Facilities</span>
                             <br><br><br>
                         </div>
@@ -152,17 +235,23 @@
     </section>
     <!-- Rooms Section End -->
 
-    <!-- Footer Section Begin -->
-    <footer class="footer-section">
+     <!-- Footer Section Begin -->
+     <footer class="footer-section">
         <div class="container">
             <div class="footer-text">
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="ft-about">
                             <div class="logo">
-                                <a href="#">
-                                    <img src="img/footer-logo.png" alt="">
-                                </a>
+                               
+                            </div>
+                            <p>We inspire and reach millions of travelers<br /> across 90 local websites</p>
+                            <div class="fa-social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-tripadvisor"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>
                             </div>
                         </div>
                     </div>
@@ -172,20 +261,11 @@
                             <ul>
                                 <li>+605-620 5833</li>
                                 <li>info@kboutiquehotel.com.my</li>
-                                <li>13A, Lorong Shahbandar 3, Pusat Perniagaan Intan Flora, 36000 Teluk Intan, Perak, Malaysia.</li>
+                                <li>No 13A, Lorong Shahbandar 3, Pusat Perniagaan Intan Flora, 36000 Teluk Intan, Perak, Malaysia</li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-3 offset-lg-1">
-                        <div class="ft-newslatter">
-                            <h6>New latest</h6>
-                            <p>Get the latest updates and offers.</p>
-                            <form action="#" class="fn-form">
-                                <input type="text" placeholder="Email">
-                                <button type="submit"><i class="fa fa-paper-plane"></i></button>
-                            </form>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -194,13 +274,12 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <ul>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Privacy</a></li>
+                            <li><a href="./privacypolicy/privacypolicy.html">Privacy Notice</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-5">
                         <div class="co-text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> for K Boutique.
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
                     </div>
                 </div>

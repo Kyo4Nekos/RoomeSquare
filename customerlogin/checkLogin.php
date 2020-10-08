@@ -20,7 +20,7 @@ if($isValidUser)
 	else if($userType =='CUSTOMER')
 		header("location:../Homepage_signin/index.php"); // redirect to customer menu page
 	else
-		header("location:../staffdashboard/examples/dashboard.html"); // redirect to staff menu page
+		header("location:../staffdashboard/examples/dashboard.php"); // redirect to staff menu page
 	}
 ?>
 	

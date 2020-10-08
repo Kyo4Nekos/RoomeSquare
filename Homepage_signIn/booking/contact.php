@@ -60,9 +60,9 @@
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
-                <li class="active"><a href="./index.php">Home</a></li>
-                <li><a href="../Homepage/booking/room.html">Rooms</a></li>
-                <li><a href="booking/contact.html">Contact Us</a></li>
+                <li><a href="../index.php">Home</a></li>
+                <li><a href="../Homepage/booking/room.php">Rooms</a></li>
+                <li class="active"><a href="booking/contact.php">Contact Us</a></li>
                 <li><a href="facility/facility.html">Facility</a></li>
                 <li><a href="./pages.php">Pages</a>
                     <ul class="dropdown">
@@ -119,17 +119,17 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul>
-                                        <li class="active"><a href="./index.php">Home</a></li>
-                                        <li><a href="booking/room.php">Rooms</a></li>
-                                        <li><a href="facility/facilities.php">Facility</a></li>
-                                        <li><a href="booking/contact.php">Contact Us</a></li>
+                                        <li><a href="../index.php">Home</a></li>
+                                        <li><a href="./room.php">Rooms</a></li>
+                                        <li><a href="../facility/facilities.php">Facility</a></li>
+                                        <li class="active"><a href="./contact.php">Contact Us</a></li>
                                         <?php
                                             echo ' <li><a href="#">'.$_SESSION['username'].'</a>';
                                         ?>
                                        
                                         <ul class="dropdown">
-                                            <li><a href="./profile.php">My Profile</a></li>
-                                            <li><a href="./logout.php">Logout</a></li>
+                                            <li><a href="../profile.php">My Profile</a></li>
+                                            <li><a href="../logout.php">Logout</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -144,106 +144,65 @@
     </header>
     <!-- Header End -->
 
-    <!-- About Us Section Begin -->
-    <section class="aboutus-section spad">
+    <!-- Contact Section Begin -->
+    <section class="contact-section spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="about-text">
-                        <div class="section-title">
-                            <span>About Us</span>
-                            <h2>Teluk Intan <br />K Boutique Hotel</h2>
-                        </div>
-                        <p class="f-para">Welcome to K Boutique Hotel! Our hotel conveniently set in the town of Teluk Intan, located along Jalan Sungai Manik.
-                         We are just a 10 minutes drive to town where the famous tourist attraction
-                          leaning clock tower Menara Condong is situated.</p>
-                        <p class="s-para">So when it comes to booking the perfect hotel, vacation rental, resort,
-                            apartment, guest house, or tree house, we’ve got you covered.</p>
-                        
+                <div class="col-lg-4">
+                    <div class="contact-text">
+                        <h2>Contact Us</h2>
+                        <p>K Boutique Hotel is located along Jalan Sungai Manik.
+						Easy access to the town centre which is just a 10 minutes drive away..</p>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="c-o">Address:</td>
+                                    <td>No 13A, Lorong Shahbandar 3, Pusat Perniagaan Intan Flora, 36000 Teluk Intan, Perak, Malaysia </td>
+                                </tr>
+                                <tr>
+                                    <td class="c-o">Phone:</td>
+                                    <td>+605-620 5833</td>
+                                </tr>
+                                <tr>
+                                    <td class="c-o">Email:</td>
+                                    <td>info@kboutiquehotel.com.my</td>
+                                </tr>
+                                <tr>
+                                    <td class="c-o">Website:</td>
+                                    <td>www.kboutiquehotel.com.my</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="about-pic">
+                <div class="col-lg-7 offset-lg-1">
+                    <form method="POST" action="contactSend.php" class="contact-form">
                         <div class="row">
-                            <div class="col-sm-6">
-                                <img src="img/about/about-1.jpg" alt="">
+                            <div class="col-lg-6">
+                                <input type="text" placeholder="Your Name" name="contactName">
                             </div>
-                            <div class="col-sm-6">
-                                <img src="img/about/about-2.jpg" alt="">
+                            <div class="col-lg-6">
+                                <input type="text" placeholder="Your Email" name="contactEmail">
+                            </div>
+                            <div class="col-lg-12">
+                                <textarea placeholder="Your Message"name="contactMessage"></textarea>
+                                <button type="submit">Submit Now</button>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
+            </div>
+            <div class="map">
+                <iframe
+                    src="https://meet.google.com/linkredirect?authuser=0&dest=https%3A%2F%2Fwww.google.com%2Fmaps%2Fembed%3Fpb%3D!1m18!1m12!1m3!1d3980.047289741807!2d101.03763881423023!3d4.010697697083287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cb14c374e96d23%253A0x4e24bced15d9ac3!2sK%2520Boutique%2520Hotel!5e0!3m2!1sen!2smy!4v1602172238748!5m2!1sen!2smy"
+                    height="470" style="border:0;" allowfullscreen=""></iframe>
             </div>
         </div>
     </section>
-    <!-- About Us Section End -->
+    <!-- Contact Section End -->
 
-    <!-- Services Section End -->
-    <section class="services-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <span>What We Do</span>
-                        <h2>Discover Our Services</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-sm-6">
-                    <div class="service-item">
-                        <i class="flaticon-036-parking"></i>
-                        <h4>Travel Plan</h4>
-                        <p>Our hotel is located near the heart of Teluk Intan where it is bustling 
-                            with lots of people, especially tourists!</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="service-item">
-                        <i class="flaticon-033-dinner"></i>
-                        <h4>Catering Service</h4>
-                        <p>Our hotel also provides a catering service to cater to your needs for any events.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="service-item">
-                        <i class="flaticon-026-bed"></i>
-                        <h4>Babysitting</h4>
-                        <p>Want to go sightseeing but have a little toddler with you? Our hotel comes with
-                            a professional babysitting service that can help take care of your kids while you sightseeing.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="service-item">
-                        <i class="flaticon-024-towel"></i>
-                        <h4>Laundry</h4>
-                        <p>Services all laundry and dry cleaning of all hotel soft furnishing 
-                            as well as staff uniforms and guest laundry/dry cleaning needs</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="service-item">
-                        <i class="flaticon-044-clock-1"></i>
-                        <h4>24/7 Front Desk</h4>
-                        <p>If there are no instructions on or around the phone then you could 
-                            probably just dial '0' for front desk and ask to be connected to restaurant room service</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="service-item">
-                        <i class="flaticon-012-cocktail"></i>
-                        <h4>Bar & Drink</h4>
-                        <p>Come have a drink and relax at our K Bar! Always dazzling with musicians with relaxing music to ease your comfort.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Services Section End -->
-
-    <!-- Footer Section Begin -->
-    <footer class="footer-section">
+     <!-- Footer Section Begin -->
+     <footer class="footer-section">
         <div class="container">
             <div class="footer-text">
                 <div class="row">
@@ -281,7 +240,7 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <ul>
-                            <li><a href="./privacypolicy/privacypolicy.php">Privacy Notice</a></li>
+                            <li><a href="./privacypolicy/privacypolicy.html">Privacy Notice</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-5">
@@ -295,16 +254,6 @@
     </footer>
     <!-- Footer Section End -->
 
-    <!-- Search model Begin -->
-    <div class="search-model">
-        <div class="h-100 d-flex align-items-center justify-content-center">
-            <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Search here.....">
-            </form>
-        </div>
-    </div>
-    <!-- Search model end -->
-
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -315,5 +264,7 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 </body>
+
+
 
 </html>

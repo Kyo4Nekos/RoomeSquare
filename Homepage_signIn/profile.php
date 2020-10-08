@@ -36,30 +36,21 @@ $custusername=$_SESSION['username'];
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
-						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="booking/booking.html">Rooms</a>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#facilities">Facilities</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="booking/contact.html">Contact Us</a></li>
+						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="./index.php">Home</a>
+						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="booking/room.php">Rooms</a>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="facility/facilities.php">Facility</a></li>
+						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="booking/contact.php">Contact Us</a></li>
+						<?php echo '<li class="nav-item"><a class="nav-link js-scroll-trigger" href="./profile.php">'.$_SESSION['username'].'</a></li>'; ?>
 						<li class="dropdown nav-item">
-                		<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  		<div class = "photo">
-						<?php echo '<img src="imageView(2).php?custusername='. $_SESSION['username'].'" class="avatar1 img-circle img-thumbnail" >'; ?>
-                  		</div>
-                  		
-                		</a>
+                		<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"></a>
                 		<ul class="dropdown-menu dropdown-navbar">
-                  		<li class="nav-link"><a href="../Homepage_signIn/profile.php" class="nav-item dropdown-item">My Profile</a></li>
-                  		<li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">My Booking</a></li>
-                  		<li class="dropdown-divider"></li>
-                  		<li class="nav-link"><a href="../Homepage_signIn/logout.php" class="nav-item dropdown-item">Log Out</a></li></ul>
+                  		<li class="nav-link"><a href="./logout.php" class="nav-item dropdown-item">Log Out</a></li></ul>
               			</li>
                   		
                   		<p class="d-lg-none">Log out</p>
                 		</a>
                 		<ul class="dropdown-menu dropdown-navbar">
-                  		<li class="nav-link"><a href="../Homepage_signIn/profile.html" class="nav-item dropdown-item">My Profile</a></li>
-                  		<li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">My Booking</a></li>
+                  		<li class="nav-link"><a href="./profile.php" class="nav-item dropdown-item">My Profile</a></li>
                   		<li class="dropdown-divider"></li>
                   		<li class="nav-link"><a href="../Homepage/index.php" class="nav-item dropdown-item">Log out</a></li>
                 		</ul>

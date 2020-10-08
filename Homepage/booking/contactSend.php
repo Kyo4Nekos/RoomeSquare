@@ -7,7 +7,11 @@
 	{
 	echo mysqli_connect_error();
 	exit;
-	}
+  }
+  
+  $message = "Thank you for your feedback! ";
+ $message1 = "An Error Occured! Please try again. ";
+ 
  //collect data from post array
  $contactName = $_POST['contactName'];
  $contactEmail = $_POST['contactEmail'];
@@ -17,7 +21,14 @@
  
 //echo $sql;
 	$qry = mysqli_query($con,$sql);
- return $qry;
+  if($qry){
+    echo "<script type='text/javascript'>alert('$message');</script>";
+    echo "<meta http-equiv='refresh' content='0;url=./contact.php'>";
+   }else{
+    echo "<script type='text/javascript'>alert('$message1');</script>";
+    echo "<meta http-equiv='refresh' content='0;url=./contact.php'>";
+        }
 
-    }
+
+  }
 ?>
