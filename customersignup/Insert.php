@@ -13,6 +13,8 @@ if(!mysqli_select_db($con,'hoteldb'))
 	echo 'Database not selected';
 	}
 
+$message ="Succesfully registered!";
+
  //collect data from post array
  $custname = $_POST['fullname'];
  $custusername = $_POST['username'];
@@ -21,30 +23,18 @@ if(!mysqli_select_db($con,'hoteldb'))
  $custphoneno=$_POST['phone'];
  $userType = 'CUSTOMER';
   
-  $sql1="INSERT INTO customer(custname, custusername,custemail,custpass,custphoneno,userType)
+  $sql="INSERT INTO customer(custname, custusername,custemail,custpass,custphoneno,userType)
 	VALUES ('$custname','$custusername','$custemail','$custpass','$custphoneno','$userType')"; 
   
-  $sql2="INSERT INTO users(username,password,userType) 
-  VALUES ('$custusername','$custpass','$userType')";
-	
-if(!mysqli_query($con,$sql1))
+if(!mysqli_query($con,$sql))
 {
 	echo 'Not Inserted.';
 }
 else
 {
-	echo 'Inserted.';
-}
-
-if(!mysqli_query($con,$sql2))
-{
-	echo ' Your username or Password was not inserted into the server.';
-}
-else
-{
-	echo 'Your username or Password has been inserted.';
-}
+	echo "<script type='text/javascript'>alert('$message');</script>";
+	header("refresh:2; url=account_verify.php");
+} 
  
- header("refresh:2; url=account_verify.php");
 
 ?>

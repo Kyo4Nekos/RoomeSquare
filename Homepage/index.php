@@ -169,7 +169,7 @@
                           leaning clock tower Menara Condong is situated.</p>
                         <p class="s-para">So when it comes to booking the perfect hotel, vacation rental, resort,
                             apartment, guest house, or tree house, we’ve got you covered.</p>
-                        <a href="#" class="primary-btn about-btn">Read More</a>
+
                     </div>
                 </div>
                 <div class="col-lg-6">
