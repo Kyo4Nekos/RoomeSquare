@@ -15,7 +15,7 @@ if(isset($_POST['confirmBook'])){
 			echo "<script type='text/javascript'>alert('$message');</script>";
 			echo "<meta http-equiv='refresh' content='0;url=./dashboard.php'>";
 		}else{
-			//echo "<meta http-equiv='refresh' content='0;url=../Homepage/index.html'>";
+			//echo "<meta http-equiv='refresh' content='0;url=../Homepage/index.php'>";
 			echo "Tak Jadii";
 		}
 } 
@@ -29,7 +29,7 @@ else if(isset($_POST['removeBook'])){
 			echo "<script type='text/javascript'>alert('$message');</script>";
 			echo "<meta http-equiv='refresh' content='0;url=./dashboard.php'>";
 		}else{
-			//echo "<meta http-equiv='refresh' content='0;url=../Homepage/index.html'>";
+			//echo "<meta http-equiv='refresh' content='0;url=../Homepage/index.php'>";
 			echo "Tak Jadii";
 	}
 }

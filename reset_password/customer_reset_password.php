@@ -685,9 +685,9 @@ if (isset($_POST['Go'])) {
         ';
     $headers = 'From: kloveboutique420@gmail.com';
     if (mail($to, $subject, $message, $headers))
-		echo "<meta http-equiv='refresh' content='0;url=../Homepage/index.html'>";
+		echo "<meta http-equiv='refresh' content='0;url=../Homepage/index.php'>";
     else
-		echo "<meta http-equiv='refresh' content='0;url=../Homepage/index.html'>";
+		echo "<meta http-equiv='refresh' content='0;url=../Homepage/index.php'>";
 }
 
 ?>

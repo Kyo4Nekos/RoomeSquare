@@ -61,7 +61,7 @@ $custusername=$_SESSION['username'];
                   		<li class="nav-link"><a href="../Homepage_signIn/profile.html" class="nav-item dropdown-item">My Profile</a></li>
                   		<li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">My Booking</a></li>
                   		<li class="dropdown-divider"></li>
-                  		<li class="nav-link"><a href="../Homepage/index.html" class="nav-item dropdown-item">Log out</a></li>
+                  		<li class="nav-link"><a href="../Homepage/index.php" class="nav-item dropdown-item">Log out</a></li>
                 		</ul>
               			</li>
                     </ul>

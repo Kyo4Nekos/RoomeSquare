@@ -9,8 +9,8 @@ if (!$con) {
 $sql = "UPDATE `customer` SET `verifyAcc`= '1' WHERE custemail = '" . $_GET["email"] . "'";
 $result = mysqli_query($con, $sql);
 	if($result){
-		echo "<meta http-equiv='refresh' content='0;url=../Homepage/index.html'>";
+		echo "<meta http-equiv='refresh' content='0;url=../Homepage/index.php'>";
 	}else{
-		echo "<meta http-equiv='refresh' content='0;url=../Homepage/index.html'>";
+		echo "<meta http-equiv='refresh' content='0;url=../Homepage/index.php'>";
 	}
 ?>

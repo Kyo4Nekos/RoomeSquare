@@ -18,13 +18,7 @@ $customer = \Stripe\Customer::create(array(
   "source" => $token
 ));
 
-// Charge Customer
-$charge = \Stripe\Charge::create(array(
-  "amount" => $price*100,
-  "currency" => "myr",
-  "description" => "K Boutique Room Payment",
-  "customer" => $customer->id
-));
+
 
 $con = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb");
 if(!$con)
@@ -52,6 +46,14 @@ if(!$con)
   
   $qry = mysqli_query($con,$sql); 
 
+
+// Charge Customer
+$charge = \Stripe\Charge::create(array(
+  "amount" => $price*100,
+  "currency" => "myr",
+  "description" => "K Boutique Room Payment",
+  "customer" => $customer->id
+));
 
 
 $to = $email;
