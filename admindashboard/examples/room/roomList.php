@@ -1,9 +1,3 @@
-<?php
-session_start();
-if (!(isset($_SESSION['username']) && ($_SESSION['pass']))){
-	header ("Location: ../customerlogin/index.html");
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,31 +18,33 @@ if (!(isset($_SESSION['username']) && ($_SESSION['pass']))){
 
 <body class="white-content">
   <div class="wrapper">
-    <div class="sidebar" data="blue">
-      <div class="sidebar-wrapper" data="blue">
-        <div class="logo">      
-		  <a href="javascript:void(0)" class="simple-text logo-mini">
+    <div class="sidebar">
+      <div class="sidebar-wrapper">
+        <div class="logo">
+          <a href="javascript:void(0)" class="simple-text logo-mini">
             KBH
           </a>
           <a href="javascript:void(0)" class="simple-text logo-normal">
             K Boutique Hotel
           </a>
         </div>
-        <ul class="nav">		  
-          <li class="active ">
-            <a href="./dashboard.html">
+        <ul class="nav">
+          <li>
+            <a href="../dashboard.php">
               <i class="tim-icons icon-chart-pie-36"></i>
-              <p>Payment</p>
+              <p>Dashboard</p>
             </a>
           </li>
           <li>
-            <a href="./room/roomList.php">
+          <li class="active">
+            <a href="roomList.php">
               <i class="tim-icons icon-notes"></i>
               <p>Room</p>
             </a>
           </li>
+          </li>
           <li>
-            <a href="./stafflist.html">
+            <a href="../staff/staffList.php">
               <i class="tim-icons icon-badge"></i>
               <p>Staff List</p>
             </a>
@@ -56,8 +52,7 @@ if (!(isset($_SESSION['username']) && ($_SESSION['pass']))){
         </ul>
       </div>
     </div>
-    <div class="main-panel" data="blue">
-
+    <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
         <div class="container-fluid">
@@ -69,7 +64,7 @@ if (!(isset($_SESSION['username']) && ($_SESSION['pass']))){
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
+            <a class="navbar-brand" href="javascript:void(0)">Staff List</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -79,7 +74,7 @@ if (!(isset($_SESSION['username']) && ($_SESSION['pass']))){
           <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
               <li class="search-bar input-group">
-                <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i class="tim-icons icon-zoom-split" ></i>
+                <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i class="tim-icons icon-zoom-split"></i>
                   <span class="d-lg-none d-md-block">Search</span>
                 </button>
               </li>
@@ -97,7 +92,7 @@ if (!(isset($_SESSION['username']) && ($_SESSION['pass']))){
                   <li class="nav-link"><a href="user.php" class="nav-item dropdown-item">Profile</a></li>
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a></li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-link"><a href="../examples/logout.php" class="nav-item dropdown-item">Log out</a></li>
+                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a></li>
                 </ul>
               </li>
               <li class="separator d-lg-none"></li>
@@ -118,86 +113,93 @@ if (!(isset($_SESSION['username']) && ($_SESSION['pass']))){
         </div>
       </div>
       <!-- End Navbar -->
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card ">
+              <div class="card-header">
+                <h4 class="card-title"> Room List</h4>
+              </div>
+              <div class="card-body">
+                <table class=" table tablesorter" id="">
+                  <?php
+                  include "room.php";
+                  echo '
 
-	  <?php
+                    <thead class=" text-primary">
+                    <th>Room Type: </th>
+                    <th>Bed Type: </th>
+                    <th>Price per Night: </th>
+                    <th>Delete</th>
+                    <th>Update</th>
 
-include "room.php";
-echo '<h1>K Boutique Room List</h1>';
+                    </thead>';
+                  $con = mysqli_connect("localhost", "id14806959_hotel", "Zagx&Pk8|RGX-^Hw", "hoteldb");
+                  if (!$con) {
+                    echo mysqli_connect_error();
+                    exit;
+                  }
 
-//===================== search form=====
-displaySearchOption();
-if(isSet($_POST['searchByRoomType']))
-	$qry = findRoomByRoomType(); //call function in car.php
-else
-	$qry = getListOfRoom();//display all car
+                  $qry = getListOfRoom(); //display all car
 
-//add car menu
-echo '<form action = "processRoom.php" method ="POST">';
-	echo '<br><input type = "submit" name="addRoomButton" value ="Add New Room">';
-echo '</form>';
 
-//display car info	
-echo '
-   <div class="card-body ">
-  <div class="table-full-width table-presponsive">
-  <table class="table">';
-echo '<table border=1>';
-echo '<tr>
-		<td>Room Type: </td>
-		<td>Bed Type: </td>
-		<td>Price per Night: </td>
-		<td>Delete</td>
-		<td>Update</td>
-	</tr>';
-while($row=mysqli_fetch_assoc($qry))//Display car information
-  {
+                  while ($row = mysqli_fetch_assoc($qry)) //Display Payment information
+                  {
+                    echo '
+                    <tbody>';
+                    echo '<td>' . $row['roomType'] . '</td>';
+                    echo '<td>' . $row['bedType'] . '</td>';
+                    echo '<td>' . $row['price'] . '</td>';
 
-  echo '<tr>';
-  echo '<td>'.$row['roomType'].'</td>';
-  echo '<td>'.$row['bedType'].'</td>';
-  echo '<td>'.$row['price'].'</td>';
+                    //delete menu
+                    echo '<td>';
+                    echo '<form action="processRoom.php" method="post" >';
+                    echo "<input type='hidden' value='" . $row['roomType'] . "' name='RoomToDelete'>";
+                    echo '<input type="submit" name="deleteRoomButton" value="Delete">';
+                    echo '</form>';
+                    echo '</td>';
+                    //update menu
+                    echo '<td>';
+                    echo '<form action="updateRoomForm.php" method="post" >';
+                    echo "<input type='hidden' value='" . $row['roomType'] . "' name='RoomToUpdate'>";
+                    echo '<input type="submit" name="updateRoomButton" value="Update">';
+                    echo '</form>';
+                    echo '</td>';
+
+
+                    echo '</tbody>';
+                  }
+                  echo '</table>';
+
+
+                  ?>
+               <form action="roomInfo.php" method="POST">
+									<button type="submit" rel="tooltip" title="" class="btn btn-link" data-original-title="Add Task">
+										<i class="tim-icons icon-simple-add"></i> Add New Room
+									</button>
+									</form>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container-fluid">
+      <div class="copyright">
+        ©
+        <script>
+          document.write(new Date().getFullYear())
+        </script>2020 made with <i class="tim-icons icon-heart-2"></i> by
+        <a href="javascript:void(0)" target="_blank">K Boutique Hotel</a> for a better web.
+      </div>
+    </div>
+  </footer>
+  </div>
+  </div>
   
-  //delete menu
-  echo '<td>';
-			echo '<form action="processRoom.php" method="post" >';
-			echo "<input type='hidden' value='".$row['roomType']."' name='RoomToDelete'>";
-			echo '<input type="submit" name="deleteRoomButton" value="Delete">';
-			echo '</form>';
-  echo '</td>';
-  //update menu
-  echo '<td>';
-			echo '<form action="updateRoomForm.php" method="post" >';
-			echo "<input type='hidden' value='".$row['roomType']."' name='RoomToUpdate'>";
-			echo '<input type="submit" name="updateRoomButton" value="Update">';
-			echo '</form>';
-  echo '</td>';
-  echo '</tr>'; 
-  }
-	  
-echo '</table>';
-?>
-
-<?php
-//to display the search menu
-function displaySearchOption()
-{
- echo '
-<form action="" method="post">
-<br>
-<fieldset style ="width:70%;"><legend>Search Option</legend>
-<table border=1>
-<tr><td> Search Bar : </td><td><input type=text name=searchValue><br></td></tr>
-<td></td><td>
-<input type=submit name = searchByUsername value="By Username">
-<input type=submit name = searchByName value="By Name">
-<input type=submit name = displayAll value="Display All"></td>
-</table>
-</fieldset>
-</form>';
-}
-?>
-      
-      
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
@@ -322,13 +324,6 @@ function displaySearchOption()
           $('body').removeClass('white-content');
         });
       });
-    });
-  </script>
-  <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      demo.initDashboardPageCharts();
-
     });
   </script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>

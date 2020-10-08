@@ -5,16 +5,33 @@ if (!$con) {
 	exit;
 }
 
-$message = "Booking Confirmed!";
-$bookConfirm = $_POST['BookConfirm'];
+if(isset($_POST['confirmBook'])){
+	$message = "Booking Confirmed!";
+	$bookConfirm = $_POST['BookConfirm'];
+	
+	$sql = "UPDATE `bookings` SET `bookingStatus`= 'Booking Confirmed' WHERE Booking_reference = '".$bookConfirm."'";
+	$result = mysqli_query($con, $sql);
+		if($result){
+			echo "<script type='text/javascript'>alert('$message');</script>";
+			echo "<meta http-equiv='refresh' content='0;url=./dashboard.php'>";
+		}else{
+			//echo "<meta http-equiv='refresh' content='0;url=../Homepage/index.html'>";
+			echo "Tak Jadii";
+		}
+} 
 
-$sql = "UPDATE `bookings` SET `bookingStatus`= 'Booking Confirmed' WHERE Booking_reference = '".$bookConfirm."'";
-$result = mysqli_query($con, $sql);
-	if($result){
-        echo "<script type='text/javascript'>alert('$message');</script>";
-        echo "<meta http-equiv='refresh' content='0;url=./dashboard.php'>";
-	}else{
-        //echo "<meta http-equiv='refresh' content='0;url=../Homepage/index.html'>";
-        echo "Tak Jadii";
+else if(isset($_POST['removeBook'])){
+	$message = "Booking Removed!";
+	$bookRemove = $_POST['removeConfirm'];
+	$sql = "DELETE FROM `bookings`  WHERE Booking_reference = '".$bookRemove."'";
+	$result = mysqli_query($con, $sql);
+		if($result){
+			echo "<script type='text/javascript'>alert('$message');</script>";
+			echo "<meta http-equiv='refresh' content='0;url=./dashboard.php'>";
+		}else{
+			//echo "<meta http-equiv='refresh' content='0;url=../Homepage/index.html'>";
+			echo "Tak Jadii";
 	}
+}
+
 ?>

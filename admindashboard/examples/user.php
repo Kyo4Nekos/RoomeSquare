@@ -52,23 +52,23 @@ $custusername=$_SESSION['username'];
             K Boutique Hotel
           </a>
         </div>
-        <ul class="nav">		  
-          <li class="active ">
-            <a href="./dashboard.html">
+        <ul class="nav">
+          <li class="active">
+            <a href="./dashboard.php">
               <i class="tim-icons icon-chart-pie-36"></i>
               <p>Dashboard</p>
             </a>
           </li>
           <li>
-            <a href="./icons.html">
+            <a href="room/roomList.php">
               <i class="tim-icons icon-notes"></i>
               <p>Room</p>
             </a>
-          </li> 
+          </li>
           <li>
-            <a href="./tables.html">
+            <a href="./stafflist.php">
               <i class="tim-icons icon-badge"></i>
-              <p>Staff</p>
+              <p>Staff List</p>
             </a>
           </li>
         </ul>

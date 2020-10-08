@@ -16,12 +16,12 @@ if(!$con)
  $custpass = $_POST['custpass'];
  $custphoneno = $_POST['custphoneno'];
   
-  $sql="INSERT INTO customer(userType, custusername,custname,custemail,custpass,custphoneno)
+	$sql="INSERT INTO customer(userType, custusername,custname,custemail,custpass,custphoneno)
 	VALUES ('$userType','$custusername','$custname','$custemail','$custpass','$custphoneno')";
  
 //echo $sql;
-	$qry = mysqli_query($con,$sql);
- mysqli_query($con,$sql);
+$qry = mysqli_query($con,$sql);
+
 }
 
 //getListOfCar function ==================
@@ -103,16 +103,16 @@ $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }
 //============getCarInformation
-function getCarInformation($regNum)
+function getCarInformation()
 {
 //create connection
-$con=mysqli_connect("localhost","web2","web2","cardb");
+$con=mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 
 	exit;
 	}
-$sql = "select * from car where regNumber = '".$regNum."'";
+$sql = "SELECT * FROM customer where userType = 'STAFF'";
 
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
@@ -127,6 +127,7 @@ if(!$con)
 	echo  mysqli_connect_error(); 
 	exit;
 	}
+
 //get the data to update
  $custname = $_POST['custname'];
  $custusername = $_POST['custusername'];
@@ -135,12 +136,13 @@ if(!$con)
  $custphoneno = $_POST['custphoneno'];
  
  
-$sql = 'UPDATE customer SET  custname = "'.$custname.'", custusername = "'.$custusername.'", 
-custemail = "'.$custemail.'", custpass = "'.$custpass.'", custphoneno = "'.$custphoneno.'" WHERE userType = "STAFF"';
+$sql = 'UPDATE customer SET custname = "'.$custname.'", 
+custemail = "'.$custemail.'", custpass = "'.$custpass.'", custphoneno = "'.$custphoneno.'" WHERE custusername = "'.$custusername.'" ';
 	echo $sql;
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }
+
 //getAvailableCarOnTheseDate function ==================
 function getAvailableCarOnTheseDate($startDate ,$endDate)
 {
@@ -159,4 +161,3 @@ where regNumber not in(
  return $result;//if no car available, result will be empty
 
 }
-?>

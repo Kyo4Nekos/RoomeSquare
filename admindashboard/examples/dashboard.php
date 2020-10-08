@@ -1,9 +1,3 @@
-<?php
-session_start();
-if (!(isset($_SESSION['username']) && ($_SESSION['pass']))){
-	header ("Location: ../customerlogin/index.html");
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,31 +18,31 @@ if (!(isset($_SESSION['username']) && ($_SESSION['pass']))){
 
 <body class="white-content">
   <div class="wrapper">
-    <div class="sidebar" data="blue">
-      <div class="sidebar-wrapper" data="blue">
-        <div class="logo">      
-		  <a href="javascript:void(0)" class="simple-text logo-mini">
+    <div class="sidebar">
+      <div class="sidebar-wrapper">
+        <div class="logo">
+          <a href="javascript:void(0)" class="simple-text logo-mini">
             KBH
           </a>
           <a href="javascript:void(0)" class="simple-text logo-normal">
             K Boutique Hotel
           </a>
         </div>
-        <ul class="nav">		  
-          <li class="active ">
-            <a href="./dashboard.html">
+        <ul class="nav">
+          <li class="active">
+            <a href="./dashboard.php">
               <i class="tim-icons icon-chart-pie-36"></i>
-              <p>Payment</p>
+              <p>Dashboard</p>
             </a>
           </li>
           <li>
-            <a href="./room/roomList.php">
+            <a href="room/roomList.php">
               <i class="tim-icons icon-notes"></i>
               <p>Room</p>
             </a>
           </li>
           <li>
-            <a href="./stafflist.html">
+            <a href="staff/stafflist.php">
               <i class="tim-icons icon-badge"></i>
               <p>Staff List</p>
             </a>
@@ -56,8 +50,7 @@ if (!(isset($_SESSION['username']) && ($_SESSION['pass']))){
         </ul>
       </div>
     </div>
-    <div class="main-panel" data="blue">
-
+    <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
         <div class="container-fluid">
@@ -69,7 +62,7 @@ if (!(isset($_SESSION['username']) && ($_SESSION['pass']))){
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
+            <a class="navbar-brand" href="javascript:void(0)">Staff List</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -79,7 +72,7 @@ if (!(isset($_SESSION['username']) && ($_SESSION['pass']))){
           <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
               <li class="search-bar input-group">
-                <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i class="tim-icons icon-zoom-split" ></i>
+                <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i class="tim-icons icon-zoom-split"></i>
                   <span class="d-lg-none d-md-block">Search</span>
                 </button>
               </li>
@@ -97,7 +90,7 @@ if (!(isset($_SESSION['username']) && ($_SESSION['pass']))){
                   <li class="nav-link"><a href="user.php" class="nav-item dropdown-item">Profile</a></li>
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a></li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-link"><a href="../examples/logout.php" class="nav-item dropdown-item">Log out</a></li>
+                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a></li>
                 </ul>
               </li>
               <li class="separator d-lg-none"></li>
@@ -118,65 +111,125 @@ if (!(isset($_SESSION['username']) && ($_SESSION['pass']))){
         </div>
       </div>
       <!-- End Navbar -->
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card ">
+              <div class="card-header">
+                <h4 class="card-title"> Welcome ADMIN</h4>
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <?php
-$con = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb");
-if(!$con)
-	{
-	echo mysqli_connect_error();
-	exit;
-	}
-//display Payment info	
-echo '<div style="width:1000px; margin:0 auto;">';
-echo '<table border=1 style="width:100%;" class="w3-table w3-bordered w3-striped w3-large w3-hoverable w3-card-4">';
-echo ' <table class="table">
-		<td>No</td>
-		<td>Booking Reference</td>
-		<td>Customer Name</td>
-		<td>Date Reserve</td>
-    <td>Room Type</td>
-    <td>Booking Status</td>
-    <td>Control</td>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card ">
+              <div class="card-header">
+                <h4 class="card-title">Payment Table</h4>
+              </div>
+              <div class="card-body">
+                <table class=" table tablesorter" id="">
+                  <?php
+                  echo '
 
-  </tr>';
+                    <thead class=" text-primary">
+                    <th>No</th>
+                    <th>Booking Reference</th>
+                    <th>Customer Name</th>
+                    <th>Date Reserve</th>
+                    <th>Room Type</th>
+                    <th>Booking Status</th>
+                    <th>Control</th>
 
-  $ass=('SELECT Booking_reference, Reserved_by, Date_reserved, roomType, bookingStatus FROM bookings');
-  $qry=mysqli_query($con,$ass);
-$i=1;
-while($row=mysqli_fetch_assoc($qry))//Display Payment information
-  {
-   echo '
-   <div class="card-body ">
-  <div class="table-full-width table-presponsive">
-  <table class="table">';
+                    </thead>';
+                  $con = mysqli_connect("localhost", "id14806959_hotel", "Zagx&Pk8|RGX-^Hw", "hoteldb");
+                  if (!$con) {
+                    echo mysqli_connect_error();
+                    exit;
+                  }
+                  $ass = ('SELECT Booking_reference, Reserved_by, Date_reserved, roomType, bookingStatus FROM bookings');
+                  $qry = mysqli_query($con, $ass);
+                  $i = 1;
+                  while ($row = mysqli_fetch_assoc($qry)) //Display Payment information
+                  {
+                    echo '
+                    <tbody>';
+                    echo '<td>' . $i . '</td>';
+                    echo '<td>' . $row['Booking_reference'] . '</td>';
+                    echo '<td>' . $row['Reserved_by'] . '</td>';
+                    echo '<td>' . $row['Date_reserved'] . '</td>';
+                    echo '<td>' . $row['roomType'] . '</td>';
+                    echo '<td>' . $row['bookingStatus'] . '</td>';
+
+                    //update menu
+                    echo '<td>';
+                    echo '<form action="confirmBook.php" method="POST">';
+                    echo '<input type="hidden" name="BookConfirm" value="' . $row['Booking_reference'] . '">';
+                    echo '<input type="submit" name="confirmBook" value="Confirm">';
+                    echo '</form>';
+
+                    //remove menu
+                    echo '<td>';
+                    echo '<form action="confirmBook.php" method="POST">';
+                    echo '<input type="hidden" name="removeConfirm" value="' . $row['Booking_reference'] . '">';
+                    echo '<input type="submit" name="removeBook" value="Remove">';
+                    echo '</form>';
+
+                    echo '</td>';
+                    echo '</tbody>';
+                    $i++;
+                  }
+                  echo '</table>';
+
+
+                  ?>
+                  <!-- Delete Modal -->
+                  <div id=" myDelete" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Modal Header</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Are you sure you want to delete this Staff?</p>
+                        </div>
+                        <div class="modal-footer"></div>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Yes</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                      </div>
+                    </div>
+
+                  </div>
+              </div>
+
+              <!-- End of Delete Modal -->
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container-fluid">
+      <div class="copyright">
+        ©
+        <script>
+          document.write(new Date().getFullYear())
+        </script>2020 made with <i class="tim-icons icon-heart-2"></i> by
+        <a href="javascript:void(0)" target="_blank">K Boutique Hotel</a> for a better web.
+      </div>
+    </div>
+  </footer>
+  </div>
+  </div>
   
-
-  echo '<td>'.$i.'</td>';
-  echo '<td>'.$row['Booking_reference'].'</td>';
-  echo '<td>'.$row['Reserved_by'].'</td>';
-  echo '<td>'.$row['Date_reserved'].'</td>';
-  echo '<td>'.$row['roomType'].'</td>';
-  echo '<td>'.$row['bookingStatus'].'</td>';
-
-  //update menu
-  echo '<td>';
-      echo '<form action="confirmBook.php" method="POST">';
-      echo '<input type="hidden" name="BookConfirm" value="'.$row['Booking_reference'].'">';
-			echo '<input type="submit" name="confirmBook" value="Confirm">';
-      echo '</form>';
-  echo '</td>';
-
-   
-  echo '</tr>';  
-  $i++;
-  }
-	  
-echo '</table>'; 
-echo '</div>';
-echo '</div>';
-?>
-      
-      
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
@@ -301,13 +354,6 @@ echo '</div>';
           $('body').removeClass('white-content');
         });
       });
-    });
-  </script>
-  <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      demo.initDashboardPageCharts();
-
     });
   </script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>

@@ -16,6 +16,7 @@ include "staff.php";
 $userType=$_POST['staffIdToUpdate'];
 $qry = getCarInformation($userType);//call function to get detail car data
 $row = mysqli_fetch_assoc($qry);
+
 //assign data to variable
 $custname = $row['custname'];
 $custusername = $row['custusername'];
@@ -33,7 +34,7 @@ echo '<br>Staff Name :';
 echo "<input type='text' name='custname' value='$custname'>";
 
 echo '<br>Staff Username :';
-echo "<input type='text' name='custusername' value='$custusername'>";
+echo "<input type='text' name='custusername' readonly value='$custusername'>";
 
 echo '<br>Staff Email :';
 echo "<input type='text' name='custemail' value='$custemail'>";
