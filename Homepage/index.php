@@ -113,7 +113,7 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul>
-                                        <li class="active"><a href="./index.php">Home</a></li>
+                                        <li class="active"><a href="index.php">Home</a></li>
                                         <li><a href="../Homepage/booking/room.html">Rooms</a></li>
                                         <li><a href="facility/facility.html">Facility</a></li>
                                         <li><a href="booking/contact.html">Contact Us</a></li>
@@ -130,7 +130,7 @@
     </header>
     <!-- Header End -->
 
-    <!-- Hero Section Begin -->
+    <!-- Hero Section Begin 
     <section class="hero-section">
         <div class="container">
             <div class="row">
@@ -152,7 +152,7 @@
             <div class="hs-item set-bg" data-setbg="img/hero/hero-3.jpg"></div>
         </div>
     </section>
-    <!-- Hero Section End -->
+     Hero Section End -->
 
     <!-- About Us Section Begin -->
     <section class="aboutus-section spad">
