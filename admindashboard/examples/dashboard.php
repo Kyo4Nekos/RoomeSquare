@@ -1,3 +1,8 @@
+<?php	
+    session_start();
+    if (!(isset($_SESSION['username']) && ($_SESSION['pass'])))
+        header ("Location: ../customerlogin/index.html");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -113,7 +118,7 @@
           <div class="col-md-12">
             <div class="card ">
               <div class="card-header">
-                <h4 class="card-title"> Welcome ADMIN</h4>
+              <?php echo '<h4 class="card-title"> Welcome '.$_SESSION['username'].'</h4>'; ?>
                 <br>
               </div>
             </div>

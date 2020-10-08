@@ -149,20 +149,6 @@ $custusername=$_SESSION['username'];
 					$sql = 'SELECT * FROM `customer` WHERE custusername = "' . $_SESSION['username'] . '"';
 					$result = mysqli_query($con, $sql) or trigger_error("Query Failed! SQL: $sql - Error: " . mysqli_error($con), E_USER_ERROR);
 					while ($row = mysqli_fetch_assoc($result)) {
-
-				/*	echo '<form action= "update.php" method= "POST">';
-					echo '<div class="row">';
-						echo        '<div class="column">';
-						
-					//echo '<div class="row mt-3">';
-					echo '<div class="col-md-6"><input type="text" size="50" class="form-control" name="username" value="'.$row['custusername'].'" placeholder="Username"></div>';
-					echo '<div class="col-md-6"><input type="text" size="50" class="form-control" name="fullname" value="'.$row['custname'].'" placeholder="Full Name"></div>';
-					//echo '</div>';
-					//echo '<div class="row mt-3">';
-					echo '<div class="col-md-6"><input type="text" size="50" class="form-control" name="email" value="'.$row['custemail'].'" placeholder="Email"></div>';
-					echo '<div class="col-md-6"><input type="text" size="50" class="form-control" name="phone" value="'.$row['custphoneno'].'" placeholder="Phone Number"></div>';
-					echo '</div>';
-          echo '</form>';*/
           
           echo '<form action= "update.php" method= "POST">';
           echo   '<div class="row">';
