@@ -102,10 +102,10 @@ while($row=mysqli_fetch_assoc($qryAvailable))//Display car information
   echo '<td>'.$row['bedType'].'</td>';
   echo '<td>'.$row['price'].'</td>';
   //taxes
-   /*$Rental_period=getDayDiff($startDate,$endDate);
+   $Rental_period=getDayDiff($startDate,$endDate);
    $total = $Rental_period *  $row['price'];
    $tax=0.06 * $total;
-   $Amount_due = $tax + $total;*/
+   $Amount_due = $tax + $total;
    /*echo '<td>Total RM:'.number_format($total,2).'<br>Tax RM:'.number_format($tax,2).'<br>Amount Due RM:'.number_format($Amount_due,2);*/
    echo '</td>';
    echo '<td>';
@@ -114,7 +114,7 @@ while($row=mysqli_fetch_assoc($qryAvailable))//Display car information
 			echo "<input type='hidden' value='$custId' name='custIdToBook'>";
 			echo "<input type='hidden' value='$startDate' name='startDate'>";
 			echo "<input type='hidden' value='$endDate' name='endDate'>";
-			echo "<input type='hidden' value='$price' name='price'>";
+			echo "<input type='hidden' value='$Amount_due' name='price'>";
 			echo "<input type='submit' name='bookRoom'>";
 			echo '</form>';  
    echo '</td>';

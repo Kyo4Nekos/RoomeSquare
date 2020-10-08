@@ -47,8 +47,8 @@ if(!$con)
 
 
   $sql="INSERT INTO bookings(Booking_reference,Cust_no, Reserved_by,Date_Reserved,Date_rent_start, Date_rent_end,
-  roomType,Rental_period, Amount_due)
-	VALUES ('$charge->id','$Cust_no','$Cust_no','$Date_Reserved','$Date_rent_start','$Date_rent_end','$room','$Rental_period','$Amount_due')";
+  roomType,Rental_period, Amount_due, Paid, bookingStatus)
+	VALUES ('$charge->id','$Cust_no','$Cust_no','$Date_Reserved','$Date_rent_start','$Date_rent_end','$room','$Rental_period','$Amount_due','Paid', 'Waiting for Approval')";
   
   $qry = mysqli_query($con,$sql); 
 
@@ -59,7 +59,7 @@ $subject = 'K Boutique Hotel | Room Payment Confirmed';
 $message = 'Booking succesful!
             Below is reference for your payment.
 
-            Amount: '.$price.'
+            Amount: RM'.$price.'
             Check-In Date: '.$Date_rent_start.'
             Check-Out Date '.$Date_rent_end.'
             Room Type: '.$room.'
