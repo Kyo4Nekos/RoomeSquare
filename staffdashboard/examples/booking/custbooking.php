@@ -126,7 +126,7 @@
                 include "book.php";
                 echo '<h1>K Boutique Room List</h1>';
 
-                //===================== search form=====
+                //======= search form=====
                 displaySearchOption();
                   if(isSet($_POST['searchByBookType']))
 	                  $qry = findBookByBookType(); //call function in book.php
@@ -142,7 +142,7 @@
                   echo '<table class="table tablesorter " id="">';
                     echo '<thead class=" text-primary">';
                       echo '<tr>';
-                        echo    '<th>Room Type: </th>';
+                        echo '<th>Room Type: </th>';
 	                    	echo '<th>Bed Type: </th>';
                         echo '<th>Price per Night: </th>';
                         echo '<th>Amount Due: RM </th>';
