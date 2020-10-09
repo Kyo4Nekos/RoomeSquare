@@ -18,7 +18,6 @@
   
   $sql="INSERT INTO contactus(contactName, contactEmail, contactMessage) VALUES ('$contactName','$contactEmail','$contactMessage')";
  
-//echo $sql;
 	$qry = mysqli_query($con,$sql);
  if($qry){
   echo "<script type='text/javascript'>alert('$message');</script>";

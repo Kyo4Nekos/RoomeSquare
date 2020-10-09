@@ -347,10 +347,10 @@
                         <h1>K Boutique Hotel </h1>
                         <p>Here are the best hotel booking sites, including recommendations for international
                             travel and for finding low-priced hotel rooms.</p>
-                        <a href="#" class="primary-btn">Discover Now</a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
+
                     <div class="booking-form">
                         <h3>Book a room</h3>
                         <form action="bookingRoom/bookRoomForm.php" method="POST">

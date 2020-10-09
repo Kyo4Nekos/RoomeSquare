@@ -32,9 +32,6 @@ if (!(isset($_SESSION['username']) && ($_SESSION['pass']))){
        echo "<input type='hidden' value='".$_GET['startDate']."' name='startDate'>";
        echo "<input type='hidden' value='".$_GET['endDate']."' name='endDate'>";
        echo "<input type='hidden' value='".$_GET['Cust_no']."' name='custIdToBook'>";
-       
-
-      
        ?>
 
         <div id="card-element" class="form-control">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <style>
 	body{
-		 background-color:#e6fff2;
+		 background-color:#ffffff;
 	}
 </style>
 <head>
@@ -26,7 +26,6 @@ if (!(isset($_SESSION['username']) && ($_SESSION['pass']))){
 	header ("Location: ../customerlogin/index.html");
 }
 //echo '<div class="w3-cell-row style="width:100%; margin:0 auto;">';
-echo $_SESSION['username'];
 
 echo '<div class="w3-container" style="width:80%; margin:0 auto;">';
 

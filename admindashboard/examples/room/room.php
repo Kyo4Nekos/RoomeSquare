@@ -88,7 +88,6 @@ if(!$con)
  $bedType = $_POST['bedType'];
  $previous = $_POST['roomTypePrevious'];
 $sql = 'UPDATE rooms SET price= "'.$price.'", bedType = "'.$bedType.'", roomType = "'.$roomType.'"  WHERE roomType= "'.$previous.'"';
-	echo $sql;
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }

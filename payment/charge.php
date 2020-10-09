@@ -18,6 +18,13 @@ $customer = \Stripe\Customer::create(array(
   "source" => $token
 ));
 
+// Charge Customer
+$charge = \Stripe\Charge::create(array(
+  "amount" => $price*100,
+  "currency" => "myr",
+  "description" => "K Boutique Room Payment",
+  "customer" => $customer->id
+));
 
 
 $con = mysqli_connect("localhost","id14806959_hotel","Zagx&Pk8|RGX-^Hw","hoteldb");
@@ -39,23 +46,16 @@ if(!$con)
  $Amount_due = $tax + $total;
  
 
-
-  $sql="INSERT INTO bookings(Booking_reference,Cust_no, Reserved_by,Date_Reserved,Date_rent_start, Date_rent_end,
+  $sql="INSERT INTO bookings(Booking_reference, Cust_no, Reserved_by,Date_Reserved,Date_rent_start, Date_rent_end,
   roomType,Rental_period, Amount_due, Paid, bookingStatus)
 	VALUES ('$charge->id','$Cust_no','$Cust_no','$Date_Reserved','$Date_rent_start','$Date_rent_end','$room','$Rental_period','$Amount_due','Paid', 'Waiting for Approval')";
   
   $qry = mysqli_query($con,$sql); 
 
 
-// Charge Customer
-$charge = \Stripe\Charge::create(array(
-  "amount" => $price*100,
-  "currency" => "myr",
-  "description" => "K Boutique Room Payment",
-  "customer" => $customer->id
-));
 
 
+  
 $to = $email;
 $subject = 'K Boutique Hotel | Room Payment Confirmed';
 $message = 'Booking succesful!

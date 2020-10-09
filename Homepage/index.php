@@ -176,7 +176,7 @@
                     <div class="about-pic">
                         <div class="row">
                             <div class="col-sm-6">
-                                <img src="img/about/about-1.jpg" alt="">
+                                <img src="img/about/about-3.jpg" alt="">
                             </div>
                             <div class="col-sm-6">
                                 <img src="img/about/about-2.jpg" alt="">
@@ -264,11 +264,10 @@
                             </div>
                             <p>We inspire and reach millions of travelers<br /> across 90 local websites</p>
                             <div class="fa-social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-tripadvisor"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                                <a href="https://www.facebook.com/kboutiquehoteltelukintan/"><i class="fa fa-facebook"></i></a>
+                                <a href="https://twitter.com/TheKBoutiqueHo"><i class="fa fa-twitter"></i></a>
+                                <a href="https://www.booking.com/hotel/my/k-boutique.en-gb.html?aid=356980;label=gog235jc-1DCAsooQFCCmstYm91dGlxdWVIM1gDaKEBiAEBmAEJuAEXyAEM2AED6AEBiAIBqAIDuAL8y_77BcACAdICJGZkYmYwODUyLWM0ZjUtNGUzNS1iNTMwLWMyMjZiYjczMDU2N9gCBOACAQ;sid=6f9efe38bf10983919de5831d54cb72e;dist=0&keep_landing=1&sb_price_type=total&type=total&"><i class="fa fa-tripadvisor"></i></a>
+                                <a href="https://www.instagram.com/thekboutiquehotelrome/"><i class="fa fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
