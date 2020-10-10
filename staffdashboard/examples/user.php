@@ -31,7 +31,7 @@ error_reporting(E_ALL);
 session_start();
 $custusername=$_SESSION['username'];
 ?>
-<body class="">
+<body class="white-content">
   <div class="wrapper">
     <div class="sidebar">
       <div class="sidebar-wrapper">
@@ -45,21 +45,15 @@ $custusername=$_SESSION['username'];
         </div>
         <ul class="nav">		  
           <li class="active ">
-            <a href="./dashboard.html">
+            <a href="./dashboard.php">
               <i class="tim-icons icon-chart-pie-36"></i>
               <p>Dashboard</p>
             </a>
           </li>
           <li>
-            <a href="./icons.html">
+            <a href="room/roomList.php">
               <i class="tim-icons icon-notes"></i>
               <p>Room</p>
-            </a>
-          </li> 
-          <li>
-            <a href="./custbooking.html">
-              <i class="tim-icons icon-bullet-list-67"></i>
-              <p>Customer Booking Details</p>
             </a>
           </li>
         </ul>
@@ -98,10 +92,9 @@ $custusername=$_SESSION['username'];
                   </div>
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
-                  <li class="nav-link"><a href="user.html" class="nav-item dropdown-item">Profile</a></li>
-                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a></li>
+                  <li class="nav-link"><a href="./user.php" class="nav-item dropdown-item">Profile</a></li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-link"><a href="logout.php" class="nav-item dropdown-item">Log out</a></li>
+                  <li class="nav-link"><a href="../../Homepage_signin/logout.php" class="nav-item dropdown-item">Log out</a></li>
                 </ul>
               </li>
               <li class="separator d-lg-none"></li>

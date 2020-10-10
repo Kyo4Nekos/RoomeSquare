@@ -88,7 +88,7 @@
                 <ul class="dropdown-menu dropdown-navbar">
                   <li class="nav-link"><a href="user.php" class="nav-item dropdown-item">Profile</a></li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a></li>
+                  <li class="nav-link"><a href="../../Homepage_signin/logout.php" class="nav-item dropdown-item">Log out</a></li>
                 </ul>
               </li>
               <li class="separator d-lg-none"></li>

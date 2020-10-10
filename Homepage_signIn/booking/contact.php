@@ -89,6 +89,7 @@
         </ul>
     </div>
     <!-- Offcanvas Menu Section End -->
+    
 
     <!-- Header Section Begin -->
     <header class="header-section">
@@ -144,6 +145,23 @@
     </header>
     <!-- Header End -->
 
+     <!-- Breadcrumb Section Begin -->
+     <div class="breadcrumb-section">
+            <div class="container">
+               <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <h2>Our Contact</h2>
+                        <div class="bt-option">
+                            <a href="../index.php">Home</a>
+                            <span>Contact Us</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Breadcrumb Section End -->
+
     <!-- Contact Section Begin -->
     <section class="contact-section spad">
         <div class="container">
@@ -151,8 +169,7 @@
                 <div class="col-lg-4">
                     <div class="contact-text">
                         <h2>Contact Us</h2>
-                        <p>K Boutique Hotel is located along Jalan Sungai Manik.
-						Easy access to the town centre which is just a 10 minutes drive away..</p>
+                        <p>Your feedback helps us change for the better. Got an idea that would help our website more? Have an opinion on one of our services?</p>
                         <table>
                             <tbody>
                                 <tr>
@@ -240,7 +257,7 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <ul>
-                            <li><a href="./privacypolicy/privacypolicy.html">Privacy Notice</a></li>
+                            <li><a href="../privacypolicy/privacypolicy.php">Privacy Notice</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-5">

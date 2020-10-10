@@ -43,12 +43,7 @@
             </a>
           </li>
           </li>
-          <li>
-            <a href="../staff/staffList.php">
-              <i class="tim-icons icon-badge"></i>
-              <p>Staff List</p>
-            </a>
-          </li>
+        
         </ul>
       </div>
     </div>
@@ -89,7 +84,7 @@
                   </p>
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
-                  <li class="nav-link"><a href="user.php" class="nav-item dropdown-item">Profile</a></li>
+                  <li class="nav-link"><a href="../user.php" class="nav-item dropdown-item">Profile</a></li>
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a></li>
                   <li class="dropdown-divider"></li>
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a></li>

@@ -11,7 +11,7 @@
     <meta name="keywords" content="Sona, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sona | Template</title>
+    <title>K Boutique Hotel</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
@@ -58,7 +58,7 @@
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
-                <li class="active"><a href="../index.php">Home</a></li>
+                <li><a href="../index.php">Home</a></li>
                 <li><a href="..//booking/room.html">Rooms</a></li>
                 <li><a href="../booking/contact.html">Contact Us</a></li>
                 <li><a href="facility/facility.html">Facility</a></li>
@@ -117,10 +117,10 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul>
-                                        <li class="active"><a href="./index.php">Home</a></li>
-                                        <li><a href="../Homepage/booking/room.html">Rooms</a></li>
-                                        <li><a href="facility/facility.html">Facility</a></li>
-                                        <li><a href="booking/contact.html">Contact Us</a></li>
+                                        <li><a href="../index.php">Home</a></li>
+                                        <li><a href="../booking//room.php">Rooms</a></li>
+                                        <li><a href="../facility/facilities.php">Facility</a></li>
+                                        <li><a href="../booking/contact.php">Contact Us</a></li>
                                         <?php
                                             echo ' <li><a href="#">'.$_SESSION['username'].'</a>';
                                         ?>
